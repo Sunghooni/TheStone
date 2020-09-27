@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -33,12 +34,19 @@ public class WizardCtrl : MonoBehaviour
 
     void MouseClick()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 30) && hit.transform.name == "Cube")
+            if (Physics.Raycast(ray, out hit, 30))
             {
-                Debug.Log("WipWIp");
+                if (hit.transform.tag == "Fixed")
+                {
+                    Teleport(hit.transform.gameObject);
+                    horz = 0;
+                    vert = 0;
+                }
+                else
+                    Debug.Log("It isn't able to Climb");
             }
         }
     }
@@ -47,38 +55,19 @@ public class WizardCtrl : MonoBehaviour
     {
         horz = Input.GetAxis("Horizontal") * rotSpeed;
         vert = Input.GetAxis("Vertical") * moveSpeed;
+
         transform.Translate(Vector3.forward * vert * Time.deltaTime);
         transform.Rotate(Vector3.up * horz);
 
-        if(Input.GetKeyDown(KeyCode.Space))
-            StartCoroutine(JumpMotion());
-        if (vert != 0)
+        if (vert != 0 || horz != 0)
             anim.SetBool("run", true);
         else
             anim.SetBool("run", false);
     }
 
-    IEnumerator JumpMotion()
+    void Teleport(GameObject obj)
     {
-        float timer = 0;
-        bool jump = true;
-        anim.SetBool("jump", true);
-
-        while (true)
-        {
-            timer += Time.deltaTime;
-            if(timer > 0.3f && jump)
-            {
-                jump = false;
-                rb.AddForce(Vector3.up * 500);
-            }
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Jump") && 
-                anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
-            {
-                anim.SetBool("jump", false);
-                break;
-            }
-            yield return null;
-        }
+        var pos = obj.transform.position;
+        this.transform.position = new Vector3(pos.x, pos.y + 1.5f, pos.z);
     }
 }
