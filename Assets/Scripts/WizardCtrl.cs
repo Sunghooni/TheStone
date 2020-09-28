@@ -8,7 +8,6 @@ using UnityEngine.XR;
 public class WizardCtrl : MonoBehaviour
 {
     Animator anim;
-    Rigidbody rb;
     Ray ray;
     RaycastHit hit;
 
@@ -23,7 +22,6 @@ public class WizardCtrl : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -39,14 +37,16 @@ public class WizardCtrl : MonoBehaviour
 
     void MouseClick()
     {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0))
         {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 30))
             {
-                if (hit.transform.tag == "Untagged")
+                if (hit.transform.tag == "Ready")
                 {
-                    Debug.Log("Movable");
+                    hit.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    hit.transform.tag = "Moving";
                 }
             }
         }
@@ -84,7 +84,6 @@ public class WizardCtrl : MonoBehaviour
 
     IEnumerator TeleportEft()
     {
-        Debug.Log("1");
         float timer = 0;
         TeleportPtc.Play();
 
