@@ -8,11 +8,17 @@ public class Blocks : MonoBehaviour
     public Vector3 toPos;
     bool canGo = true;
     bool holdPos = false;
+    RaycastHit hit;
 
-    void Start()
+    void Awake()
     {
         originalPos = this.transform.position;
-        toPos = new Vector3(originalPos.x - 3.3f, originalPos.y, originalPos.z);
+        toPos = new Vector3(originalPos.x - 3f, originalPos.y, originalPos.z);
+    }   
+
+    private void Update()
+    {
+        CollideCheck();
     }
 
     void FixedUpdate()
@@ -22,11 +28,13 @@ public class Blocks : MonoBehaviour
             StartCoroutine(Moving());
             canGo = false;
         }
+        Debug.DrawRay(this.transform.position, new Vector3(-1, 0, 0), Color.red, 1.6f);
     }
 
     IEnumerator Moving()
     {
         float timer = 0;
+
         while(true)
         {
             timer += Time.deltaTime;
@@ -52,15 +60,15 @@ public class Blocks : MonoBehaviour
             yield return null;
         }
     }
-    //rigidbody없이는 사용 불가!
-    /*
-    public void OnCollisionEnter(Collision collision) 
+
+    void CollideCheck()
     {
-        if(collision.transform.tag == "Moving" || collision.transform.tag == "Ready")
+        if(Physics.Raycast(this.transform.position, new Vector3(-1, 0, 0), out hit, 1.55f))
         {
-            Debug.Log("Collide");
-            holdPos = true;
+            if(hit.transform.tag == "Moving" || hit.transform.tag == "Ready")
+            {
+                holdPos = true;
+            }
         }
     }
-    */
 }
