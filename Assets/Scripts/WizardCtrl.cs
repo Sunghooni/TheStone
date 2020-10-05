@@ -16,6 +16,7 @@ public class WizardCtrl : MonoBehaviour
     private float moveSpeed = 5;
     private float rotSpeed = 2;
 
+    public GameObject toBlock;
     public ParticleSystem TeleportPtc;
     public bool movable = true;
 
@@ -48,6 +49,16 @@ public class WizardCtrl : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
                     hit.transform.tag = "Moving";
                 }
+                if(hit.transform.tag == "Fixed")
+                {
+                    if (hit.transform.tag == "Fixed")
+                    {
+                        toBlock = hit.transform.gameObject;
+                        StartCoroutine(TeleportEft());
+                    }
+                    else
+                        Debug.Log("Nothing to Climb");
+                }
             }
         }
     }
@@ -64,22 +75,6 @@ public class WizardCtrl : MonoBehaviour
             anim.SetBool("run", true);
         else
             anim.SetBool("run", false);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            TeleportCheck();
-    }
-
-    void TeleportCheck()
-    {
-        var mePos = this.transform.position;
-
-        if (Physics.Raycast(new Vector3(mePos.x, mePos.y + 1, mePos.z), transform.forward * 5, out hit))
-        {
-            if (hit.transform.tag == "Fixed")
-                StartCoroutine(TeleportEft());
-            else
-                Debug.Log("It isn't able to Climb");
-        }
     }
 
     IEnumerator TeleportEft()
@@ -95,7 +90,7 @@ public class WizardCtrl : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > 1.5f)
             {
-                var toPos = hit.transform.position;
+                var toPos = toBlock.transform.position;
                 this.transform.position = new Vector3(toPos.x, toPos.y + 1.5f, toPos.z);
             }
             if(timer > 3)

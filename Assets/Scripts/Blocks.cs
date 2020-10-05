@@ -14,13 +14,7 @@ public class Blocks : MonoBehaviour
     {
         originPos = this.transform.position;
         toPos = originPos;
-        toPos += transform.right * -3;
-        Debug.Log(toPos.x + " " + toPos.y + " " + toPos.z);
-    }
-
-    private void Update()
-    {
-        CollideCheck();
+        toPos += transform.right * -3f;
     }
 
     void FixedUpdate()
@@ -30,7 +24,6 @@ public class Blocks : MonoBehaviour
             StartCoroutine(Moving());
             canGo = false;
         }
-        Debug.DrawRay(this.transform.position, -transform.right, Color.red, 1.6f);
     }
 
     IEnumerator Moving()
@@ -44,7 +37,7 @@ public class Blocks : MonoBehaviour
             else
                 timer += Time.deltaTime;
 
-            if (timer <= 1f)
+            if (timer <= 1.1f)
                 this.transform.position = Vector3.Lerp(originPos, toPos, timer);
             if (timer >= 1.5f)
                 this.transform.position = Vector3.Lerp(toPos, originPos, timer - 1.5f);
@@ -59,15 +52,13 @@ public class Blocks : MonoBehaviour
         }
     }
 
-    void CollideCheck()
+    private void OnTriggerEnter(Collider other)
     {
-        if(Physics.Raycast(this.transform.position, -transform.right, out hit, 1.55f))
+        if (other.tag != "Untagged")
         {
-            if(hit.transform.tag == "Moving" || hit.transform.tag == "Ready")
-            {
-                this.transform.tag = "Fixed";
-                hit.transform.tag = "Fixed";
-            }
+            this.transform.tag = "Fixed";
+            other.transform.tag = "Fixed";
+            Debug.Log("Hit");
         }
     }
 }
