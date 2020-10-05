@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class temp : MonoBehaviour
-{
-    
-    void Start()
-    {
-        
-    }
-    
+{   
     void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.H))

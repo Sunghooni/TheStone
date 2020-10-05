@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Blocks : MonoBehaviour
 {
-    public Vector3 originalPos;
+    public Vector3 originPos;
     public Vector3 toPos;
-    bool canGo = true;
-    bool holdPos = false;
-    RaycastHit hit;
+
+    private bool canGo = true;
+    private RaycastHit hit;
 
     void Awake()
     {
-        originalPos = this.transform.position;
-        toPos = new Vector3(originalPos.x - 3f, originalPos.y, originalPos.z);
-    }   
+        originPos = this.transform.position;
+        toPos = originPos;
+        toPos += transform.right * -3;
+        Debug.Log(toPos.x + " " + toPos.y + " " + toPos.z);
+    }
 
     private void Update()
     {
@@ -28,7 +30,7 @@ public class Blocks : MonoBehaviour
             StartCoroutine(Moving());
             canGo = false;
         }
-        Debug.DrawRay(this.transform.position, new Vector3(-1, 0, 0), Color.red, 1.6f);
+        Debug.DrawRay(this.transform.position, -transform.right, Color.red, 1.6f);
     }
 
     IEnumerator Moving()
@@ -37,24 +39,20 @@ public class Blocks : MonoBehaviour
 
         while(true)
         {
-            timer += Time.deltaTime;
-            if(timer <= 1f)
-            {
-                this.transform.position = Vector3.Slerp(originalPos, toPos, timer);
-            }
-            else if (timer > 1f)
-            {
-                this.transform.position = Vector3.Slerp(toPos, originalPos, timer - 1f);
-            }
-            if (timer > 2f)
+            if (this.transform.tag == "Fixed")
+                break;
+            else
+                timer += Time.deltaTime;
+
+            if (timer <= 1f)
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer);
+            if (timer >= 1.5f)
+                this.transform.position = Vector3.Lerp(toPos, originPos, timer - 1.5f);
+
+            if (timer > 2.5f)
             {
                 this.transform.tag = "Ready";
                 canGo = true;
-                break;
-            }
-            if(holdPos)
-            {
-                this.transform.tag = "Fixed";
                 break;
             }
             yield return null;
@@ -63,11 +61,12 @@ public class Blocks : MonoBehaviour
 
     void CollideCheck()
     {
-        if(Physics.Raycast(this.transform.position, new Vector3(-1, 0, 0), out hit, 1.55f))
+        if(Physics.Raycast(this.transform.position, -transform.right, out hit, 1.55f))
         {
             if(hit.transform.tag == "Moving" || hit.transform.tag == "Ready")
             {
-                holdPos = true;
+                this.transform.tag = "Fixed";
+                hit.transform.tag = "Fixed";
             }
         }
     }
