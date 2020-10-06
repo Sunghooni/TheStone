@@ -32,7 +32,7 @@ public class Blocks : MonoBehaviour
 
         while(true)
         {
-            if (this.transform.tag == "Fixed")
+            if (this.transform.tag == "Fixed" && timer >= 1.1f)
                 break;
             else
                 timer += Time.deltaTime;
