@@ -9,7 +9,8 @@ public class WizardCtrl : MonoBehaviour
 {
     Animator anim;
     Ray ray;
-    RaycastHit hit;
+    RaycastHit MouseHit;
+    RaycastHit BlockHit;
 
     private float horz;
     private float vert;
@@ -42,18 +43,18 @@ public class WizardCtrl : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out hit, 30))
+            if (Physics.Raycast(ray, out MouseHit, 30))
             {
-                if (hit.transform.tag == "Ready")
+                if (MouseHit.transform.tag == "Ready")
                 {
-                    hit.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                    hit.transform.tag = "Moving";
+                    MouseHit.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    MouseHit.transform.tag = "Moving";
                 }
-                if(hit.transform.tag == "Fixed")
+                if(MouseHit.transform.tag == "Fixed")
                 {
-                    if (hit.transform.tag == "Fixed")
+                    if (MouseHit.transform.tag == "Fixed")
                     {
-                        toBlock = hit.transform.gameObject;
+                        FindBlockToMove(MouseHit.transform.gameObject);
                         StartCoroutine(TeleportEft());
                     }
                     else
@@ -100,5 +101,15 @@ public class WizardCtrl : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void FindBlockToMove(GameObject obj)
+    {
+        if (Physics.Raycast(obj.transform.position, Vector3.up, out BlockHit, 3))
+            FindBlockToMove(BlockHit.transform.gameObject);
+        else
+            toBlock = obj;
+
+        return;
     }
 }

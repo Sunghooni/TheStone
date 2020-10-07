@@ -14,12 +14,17 @@ public class Blocks : MonoBehaviour
     {
         originPos = this.transform.position;
         toPos = originPos;
-        toPos += transform.right * -3f;
+        toPos += transform.right * -28f;
     }
 
     void FixedUpdate()
     {
-        if(this.transform.tag == "Moving" && canGo)
+        Move();
+    }
+
+    void Move()
+    {
+        if (this.transform.tag == "Moving" && canGo)
         {
             StartCoroutine(Moving());
             canGo = false;
