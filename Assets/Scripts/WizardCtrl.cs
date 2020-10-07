@@ -28,7 +28,8 @@ public class WizardCtrl : MonoBehaviour
 
     void Update()
     {
-        MouseClick();
+        if(movable)
+            MouseClick();
     }
 
     private void FixedUpdate()
@@ -43,7 +44,7 @@ public class WizardCtrl : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out MouseHit, 30))
+            if (Physics.Raycast(ray, out MouseHit, 35))
             {
                 if (MouseHit.transform.tag == "Ready")
                 {
@@ -52,14 +53,11 @@ public class WizardCtrl : MonoBehaviour
                 }
                 if(MouseHit.transform.tag == "Fixed")
                 {
-                    if (MouseHit.transform.tag == "Fixed")
-                    {
-                        FindBlockToMove(MouseHit.transform.gameObject);
-                        StartCoroutine(TeleportEft());
-                    }
-                    else
-                        Debug.Log("Nothing to Climb");
+                    FindBlockToMove(MouseHit.transform.gameObject);
+                    StartCoroutine(TeleportEft());
                 }
+                else
+                    Debug.Log("Nothing to Climb");
             }
         }
     }
@@ -76,6 +74,16 @@ public class WizardCtrl : MonoBehaviour
             anim.SetBool("run", true);
         else
             anim.SetBool("run", false);
+    }
+
+    void FindBlockToMove(GameObject obj)
+    {
+        if (Physics.Raycast(obj.transform.position, Vector3.up, out BlockHit, 3))
+            FindBlockToMove(BlockHit.transform.gameObject);
+        else
+            toBlock = obj;
+
+        return;
     }
 
     IEnumerator TeleportEft()
@@ -101,15 +109,5 @@ public class WizardCtrl : MonoBehaviour
             }
             yield return null;
         }
-    }
-
-    void FindBlockToMove(GameObject obj)
-    {
-        if (Physics.Raycast(obj.transform.position, Vector3.up, out BlockHit, 3))
-            FindBlockToMove(BlockHit.transform.gameObject);
-        else
-            toBlock = obj;
-
-        return;
     }
 }

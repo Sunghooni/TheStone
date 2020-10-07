@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class Blocks : MonoBehaviour
 {
-    public Vector3 originPos;
-    public Vector3 toPos;
+    public Vector3 originPos = Vector3.zero;
+    public Vector3 toPos = Vector3.zero;
 
-    private bool canGo = true;
-    private RaycastHit hit;
+    public bool canGo = true;
+    public bool stopMove = false;
 
-    void Awake()
-    {
-        originPos = this.transform.position;
-        toPos = originPos;
-        toPos += transform.right * -28f;
-    }
-
-    void FixedUpdate()
-    {
-        Move();
-    }
-
-    void Move()
+    public void Move()
     {
         if (this.transform.tag == "Moving" && canGo)
         {
@@ -37,17 +25,20 @@ public class Blocks : MonoBehaviour
 
         while(true)
         {
-            if (this.transform.tag == "Fixed" && timer >= 1.1f)
+            if (stopMove && timer >= 2.1f)
+            {
+                this.transform.tag = "Fixed";
                 break;
+            }
             else
                 timer += Time.deltaTime;
 
-            if (timer <= 1.1f)
-                this.transform.position = Vector3.Lerp(originPos, toPos, timer);
-            if (timer >= 1.5f)
-                this.transform.position = Vector3.Lerp(toPos, originPos, timer - 1.5f);
+            if (timer <= 2.1f)
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer/2);
+            if (timer >= 3.1f)
+                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.1f)/2);
 
-            if (timer > 2.5f)
+            if (timer > 5.2f)
             {
                 this.transform.tag = "Ready";
                 canGo = true;
@@ -57,12 +48,11 @@ public class Blocks : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Untagged")
         {
-            this.transform.tag = "Fixed";
-            other.transform.tag = "Fixed";
+            stopMove = true;
             Debug.Log("Hit");
         }
     }
