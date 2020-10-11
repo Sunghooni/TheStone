@@ -46,12 +46,16 @@ public class WizardCtrl : MonoBehaviour
         {
             if (Physics.Raycast(ray, out MouseHit, 35))
             {
-                if (MouseHit.transform.tag == "Ready")
+                GameObject parent = MouseHit.transform.gameObject;
+
+                if (parent.transform.parent)
+                    parent = parent.transform.parent.gameObject;
+                if (parent.transform.tag == "Ready")
                 {
-                    MouseHit.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
-                    MouseHit.transform.tag = "Moving";
+                    parent.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    parent.transform.tag = "Moving";
                 }
-                if(MouseHit.transform.tag == "Fixed")
+                if(parent.transform.tag == "Fixed")
                 {
                     FindBlockToMove(MouseHit.transform.gameObject);
                     StartCoroutine(TeleportEft());

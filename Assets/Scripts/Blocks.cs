@@ -17,7 +17,7 @@ public class Blocks : MonoBehaviour
             StartCoroutine(Moving());
             canGo = false;
         }
-    }
+    }   
 
     IEnumerator Moving()
     {
@@ -50,7 +50,12 @@ public class Blocks : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Untagged")
+        GameObject parent = other.transform.gameObject;
+
+        if (other.transform.parent)
+            parent = parent.transform.parent.gameObject;
+
+        if (parent.tag != "Untagged" && parent.tag != "Ready")
         {
             stopMove = true;
             Debug.Log("Hit");
