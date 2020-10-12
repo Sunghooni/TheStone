@@ -17,7 +17,7 @@ public class Blocks : MonoBehaviour
             StartCoroutine(Moving());
             canGo = false;
         }
-    }   
+    }
 
     IEnumerator Moving()
     {
@@ -55,7 +55,7 @@ public class Blocks : MonoBehaviour
         if (other.transform.parent)
             parent = parent.transform.parent.gameObject;
 
-        if (parent.tag != "Untagged" && parent.tag != "Ready")
+        if (parent.tag == "Moving" || parent.tag == "Fixed")
         {
             stopMove = true;
             Debug.Log("Hit");

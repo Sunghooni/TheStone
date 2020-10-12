@@ -50,11 +50,9 @@ public class WizardCtrl : MonoBehaviour
 
                 if (parent.transform.parent)
                     parent = parent.transform.parent.gameObject;
+
                 if (parent.transform.tag == "Ready")
-                {
-                    parent.transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
                     parent.transform.tag = "Moving";
-                }
                 if(parent.transform.tag == "Fixed")
                 {
                     FindBlockToMove(MouseHit.transform.gameObject);

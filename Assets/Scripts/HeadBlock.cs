@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class temp : Blocks
+public class HeadBlock : Blocks
 {
     int MovePos;
     void Awake()
