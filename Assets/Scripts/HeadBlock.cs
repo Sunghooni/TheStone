@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HeadBlock : Blocks
 {
-    int MovePos;
+    float MovePos;
     void Awake()
     {
-        MovePos = int.Parse(this.transform.name);
+        MovePos = float.Parse(this.transform.name);
         this.originPos = this.transform.position;
         toPos = originPos;
         toPos += transform.right * -MovePos;

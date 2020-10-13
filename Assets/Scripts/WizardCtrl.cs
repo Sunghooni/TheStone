@@ -76,9 +76,6 @@ public class WizardCtrl : MonoBehaviour
             anim.SetBool("run", true);
         else
             anim.SetBool("run", false);
-
-        if (vert != 0 && horz == 0)
-            transform.Translate(Vector3.down * Time.deltaTime); //경사진 면에서 이동 보완
     }
 
     void FindBlockToMove(GameObject obj)

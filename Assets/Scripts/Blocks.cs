@@ -33,18 +33,18 @@ public class Blocks : MonoBehaviour
             else
                 timer += Time.deltaTime;
 
-            if (timer <= 2.1f)
-                this.transform.position = Vector3.Lerp(originPos, toPos, timer/2);
-            if (timer >= 3.1f)
-                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.1f)/2);
+            if (timer <= 1.1f)
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer);
+            else if (timer >= 2.2f)
+                this.transform.position = Vector3.Lerp(toPos, originPos, timer - 2.2f);
 
-            if (timer > 5.2f)
+            if (timer > 3.3f)
             {
                 this.transform.tag = "Ready";
                 canGo = true;
                 break;
             }
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
     }
 

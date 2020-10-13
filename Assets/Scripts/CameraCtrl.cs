@@ -5,15 +5,23 @@ using UnityEngine;
 public class CameraCtrl : MonoBehaviour
 {
     public GameObject player;
-    
+    Vector3 toPos;
+
     void Start()
     {
         
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        var pos = player.transform.position;
-        this.transform.position = new Vector3(pos.x, pos.y + 3.2f, pos.z - 3.5f);
+        RaycastHit hit;
+        var pos = this.transform.position;
+        if (Physics.Raycast(player.transform.position, Vector3.up, out hit, 3.5f))
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(pos.x, 1, pos.z), Time.deltaTime);
+        }
+
+        Debug.DrawRay(player.transform.position, Vector3.up * 3.5f, Color.red, 0, false);
+        Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, false);
     }
 }
