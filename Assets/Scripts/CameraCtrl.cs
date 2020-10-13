@@ -14,17 +14,23 @@ public class CameraCtrl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit hit;
         var cameraPos = this.transform.position;
         var playerPos = player.transform.position;
-        Vector3 rayPos = new Vector3(playerPos.x, playerPos.y + 1, playerPos.z);
-        //상하 자동 조절
-        if (Physics.Raycast(rayPos, Vector3.up, out hit, 2.5f))
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, 2.5f, cameraPos.z), Time.deltaTime);
-        else
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, 3.5f, cameraPos.z), Time.deltaTime);
+        Vector3 upDownRay = new Vector3(playerPos.x, playerPos.y + 1, playerPos.z);
+        Vector3 sideRay = new Vector3(cameraPos.x, cameraPos.y, cameraPos.z);
 
-        Debug.DrawRay(rayPos, Vector3.up * 2.5f, Color.red, 0, false);
-        Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, false);
+        //상하 자동 조절
+        if (Physics.Raycast(upDownRay, Vector3.up, 2.5f))
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 2.5f, cameraPos.z), Time.deltaTime);
+        else
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 3.5f, cameraPos.z), Time.deltaTime);
+        //좌우 및 앞뒤 자동 조절
+        if (Physics.Raycast(sideRay, -transform.forward, 0.5f))
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(playerPos.x, cameraPos.y, playerPos.z + 4), Time.deltaTime);
+        else
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(playerPos.x, cameraPos.y, playerPos.z - 4), Time.deltaTime);
+        
+        Debug.DrawRay(upDownRay, Vector3.up * 2.5f, Color.red, 0, true);
+        Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, true);
     }
 }
