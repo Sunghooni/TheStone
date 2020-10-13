@@ -15,13 +15,16 @@ public class CameraCtrl : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        var pos = this.transform.position;
-        if (Physics.Raycast(player.transform.position, Vector3.up, out hit, 3.5f))
-        {
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(pos.x, 1, pos.z), Time.deltaTime);
-        }
+        var cameraPos = this.transform.position;
+        var playerPos = player.transform.position;
+        Vector3 rayPos = new Vector3(playerPos.x, playerPos.y + 1, playerPos.z);
+        //상하 자동 조절
+        if (Physics.Raycast(rayPos, Vector3.up, out hit, 2.5f))
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, 2.5f, cameraPos.z), Time.deltaTime);
+        else
+            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, 3.5f, cameraPos.z), Time.deltaTime);
 
-        Debug.DrawRay(player.transform.position, Vector3.up * 3.5f, Color.red, 0, false);
+        Debug.DrawRay(rayPos, Vector3.up * 2.5f, Color.red, 0, false);
         Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, false);
     }
 }
