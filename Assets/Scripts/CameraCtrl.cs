@@ -24,13 +24,8 @@ public class CameraCtrl : MonoBehaviour
             this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 2.5f, cameraPos.z), Time.deltaTime);
         else
             this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 3.5f, cameraPos.z), Time.deltaTime);
-        //좌우 및 앞뒤 자동 조절
-        if (Physics.Raycast(sideRay, -transform.forward, 0.5f))
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(playerPos.x, cameraPos.y, playerPos.z + 4), Time.deltaTime);
-        else
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(playerPos.x, cameraPos.y, playerPos.z - 4), Time.deltaTime);
         
-        Debug.DrawRay(upDownRay, Vector3.up * 2.5f, Color.red, 0, true);
-        Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, true);
+        //Debug.DrawRay(upDownRay, Vector3.up * 2.5f, Color.red, 0, true);
+        //Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, true);
     }
 }

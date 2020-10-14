@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blocks : MonoBehaviour
+public class Block : MonoBehaviour
 {
     public Vector3 originPos = Vector3.zero;
     public Vector3 toPos = Vector3.zero;
@@ -33,12 +33,12 @@ public class Blocks : MonoBehaviour
             else
                 timer += Time.deltaTime;
 
-            if (timer <= 1.1f)
-                this.transform.position = Vector3.Lerp(originPos, toPos, timer);
-            else if (timer >= 2.2f)
-                this.transform.position = Vector3.Lerp(toPos, originPos, timer - 2.2f);
+            if (timer <= 2.1f)
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer/2);
+            else if (timer >= 3.2f)
+                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.2f)/2);
 
-            if (timer > 3.3f)
+            if (timer > 5.3f)
             {
                 this.transform.tag = "Ready";
                 canGo = true;
