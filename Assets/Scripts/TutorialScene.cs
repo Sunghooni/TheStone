@@ -35,19 +35,21 @@ public class TutorialScene : MonoBehaviour
             case 4:
                 Part4();
                 break;
+            case 5:
+                Part5();
+                break;
+            case 6:
+                Part6();
+                break;
+            case 7:
+                Part7();
+                break;
         }
     }
 
     void Part1()
     {
-        bool passPart = false;
-
         if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
-            passPart = true;
-        else if(player.transform.eulerAngles.y < -179 && player.transform.eulerAngles.y > -181)
-            passPart = true;
-
-        if(passPart)
         {
             Debug.Log("Part1 Clear");
             partCnt = 2;
@@ -92,11 +94,60 @@ public class TutorialScene : MonoBehaviour
         {
             wizardCtrl.moveSpeed = 0;
             wizardCtrl.rotSpeed = 2;
-            if(player.transform.eulerAngles.y < 2)
+
+            if(player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
             {
-                Debug.Log("Part5 Clear");
+                Debug.Log("Part4 Clear");
                 partCnt = 5;
             }
+        }
+    }
+
+    void Part5()
+    {
+        wizardCtrl.moveSpeed = 0;
+        wizardCtrl.rotSpeed = 0;
+
+        if(blocks[1].tag.Equals("Untagged"))
+        {
+            blocks[1].tag = "Ready";
+            blocks[2].tag = "Ready";
+        }
+        else if(blocks[1].tag.Equals("Fixed"))
+        {
+            if(player.transform.position.z == 0)
+            {
+                Debug.Log("Part5 Clear");
+                partCnt = 6;
+            }
+        }
+    }
+
+    void Part6()
+    {
+        wizardCtrl.moveSpeed = 0;
+        wizardCtrl.rotSpeed = 0;
+
+        if(blocks[3].tag.Equals("Untagged"))
+        {
+            blocks[3].tag = "Ready";
+        }
+        else if(blocks[3].tag.Equals("Fixed"))
+        {
+            Debug.Log("Part6 Clear");
+            partCnt = 7;
+        }
+    }
+
+    void Part7()
+    {
+        wizardCtrl.moveSpeed = 5;
+        wizardCtrl.rotSpeed = 0;
+
+        if(player.transform.position.z >= 12)
+        {
+            Debug.Log("Tutorial Finished");
+            partCnt = 0;
         }
     }
 }

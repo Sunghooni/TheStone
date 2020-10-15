@@ -7,7 +7,7 @@ public class TeleportCtrl : MonoBehaviour
     public ParticleSystem TeleportPtc;
 
     private WizardCtrl wizardCtrl;
-    private GameObject targetBlock;
+    public GameObject targetBlock;
     private bool teleportable = true;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class TeleportCtrl : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(obj.transform.position, Vector3.up, out hit, 3))
+        if (Physics.Raycast(obj.transform.position, Vector3.up, out hit, 3) && !hit.transform.name.Equals("Wizard"))
             FindBlockToMove(hit.transform.gameObject);
         else
             targetBlock = obj;
