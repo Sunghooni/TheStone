@@ -32,13 +32,22 @@ public class TutorialScene : MonoBehaviour
             case 3:
                 Part3();
                 break;
+            case 4:
+                Part4();
+                break;
         }
     }
 
     void Part1()
     {
-        if(player.transform.eulerAngles.y > 179 || 
-           player.transform.eulerAngles.y < -179)
+        bool passPart = false;
+
+        if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
+            passPart = true;
+        else if(player.transform.eulerAngles.y < -179 && player.transform.eulerAngles.y > -181)
+            passPart = true;
+
+        if(passPart)
         {
             Debug.Log("Part1 Clear");
             partCnt = 2;
@@ -49,7 +58,7 @@ public class TutorialScene : MonoBehaviour
     {
         wizardCtrl.rotSpeed = 0;
         wizardCtrl.moveSpeed = 5;
-        if(player.transform.position.z < -6)
+        if(player.transform.position.z < -5.8f)
         {
             Debug.Log("Part2 Clear");
             partCnt = 3;
@@ -60,10 +69,34 @@ public class TutorialScene : MonoBehaviour
     {
         wizardCtrl.rotSpeed = 0;
         wizardCtrl.moveSpeed = 0;
-        if (blocks[0].tag == "Moving")
+
+        if (blocks[0].tag.Equals("Untagged"))
+        {
+            blocks[0].tag = "Ready";
+        }
+        else if (blocks[0].tag.Equals("Moving"))
         {
             Debug.Log("Part3 Clear");
-            partCnt = 3;
+            partCnt = 4;
+        }
+    }
+
+    void Part4()
+    {   
+        if(player.transform.position.z > -9 && blocks[0].tag.Equals("Staying"))
+        {
+            wizardCtrl.moveSpeed = 5;
+            wizardCtrl.rotSpeed = 0;
+        }
+        else
+        {
+            wizardCtrl.moveSpeed = 0;
+            wizardCtrl.rotSpeed = 2;
+            if(player.transform.eulerAngles.y < 2)
+            {
+                Debug.Log("Part5 Clear");
+                partCnt = 5;
+            }
         }
     }
 }

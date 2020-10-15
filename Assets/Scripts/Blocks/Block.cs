@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
@@ -25,22 +26,32 @@ public class Block : MonoBehaviour
 
         while(true)
         {
+            timer += Time.deltaTime;
+
             if (stopMove && timer >= 2.1f)
             {
-                this.transform.tag = "Fixed";
+                gameObject.tag = "Fixed";
                 break;
             }
-            else
-                timer += Time.deltaTime;
 
             if (timer <= 2.1f)
-                this.transform.position = Vector3.Lerp(originPos, toPos, timer/2);
+            {
+                gameObject.tag = "Moving";
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer / 2);
+            }
+            else if (timer > 2.1f && timer < 3.2f)
+            {
+                gameObject.tag = "Staying";
+            }
             else if (timer >= 3.2f)
-                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.2f)/2);
+            {
+                gameObject.tag = "Backing";
+                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.2f) / 2);
+            }
 
             if (timer > 5.3f)
             {
-                this.transform.tag = "Ready";
+                gameObject.tag = "Ready";
                 canGo = true;
                 break;
             }
@@ -50,12 +61,12 @@ public class Block : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        GameObject parent = other.transform.gameObject;
+        GameObject triggerObj = other.transform.gameObject;
 
         if (other.transform.parent)
-            parent = parent.transform.parent.gameObject;
+            triggerObj = other.transform.parent.gameObject;
 
-        if (parent.tag == "Moving" || parent.tag == "Fixed")
+        if (triggerObj.tag == "Moving" || triggerObj.tag == "Fixed" || triggerObj.tag == "Staying")
         {
             stopMove = true;
             Debug.Log("Hit");

@@ -7,6 +7,8 @@ TagManager:
   - Fixed
   - Ready
   - Moving
+  - Staying
+  - Backing
   layers:
   - Default
   - TransparentFX
