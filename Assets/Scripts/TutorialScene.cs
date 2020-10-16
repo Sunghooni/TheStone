@@ -118,7 +118,15 @@ public class TutorialScene : MonoBehaviour
         {
             blocks[1].tag = "Ready";
             blocks[2].tag = "Ready";
+            blocks[1].GetComponent<Block1>().freeze = true;
+            blocks[2].GetComponent<Block2>().freeze = true;
         }
+        if(blocks[1].tag.Equals("Moving") && blocks[2].tag.Equals("Moving"))
+        {
+            blocks[1].GetComponent<Block1>().freeze = false;
+            blocks[2].GetComponent<Block2>().freeze = false;
+        }
+
         else if(blocks[1].tag.Equals("Fixed"))
         {
             blocks[2].tag = "Untagged";
