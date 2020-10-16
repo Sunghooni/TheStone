@@ -10,6 +10,7 @@ public class Block : MonoBehaviour
 
     public bool canGo = true;
     public bool stopMove = false;
+    public bool freeze = false;
 
     public void Move()
     {
@@ -26,7 +27,8 @@ public class Block : MonoBehaviour
 
         while(true)
         {
-            timer += Time.deltaTime;
+            if(!freeze)
+                timer += Time.deltaTime;
 
             if (stopMove && timer >= 2.1f)
             {

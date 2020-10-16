@@ -77,9 +77,10 @@ public class TutorialScene : MonoBehaviour
         {
             blocks[0].tag = "Ready";
         }
-        else if (blocks[0].tag.Equals("Moving"))
+        else if (blocks[0].tag.Equals("Staying"))
         {
             Debug.Log("Part3 Clear");
+            blocks[0].GetComponent<Block2>().freeze = true;
             partCnt = 4;
         }
     }
@@ -88,7 +89,7 @@ public class TutorialScene : MonoBehaviour
     {
         backBlock.SetActive(true);
 
-        if(player.transform.position.z > -9 && blocks[0].tag.Equals("Staying"))
+        if(player.transform.position.z > -9)
         {
             wizardCtrl.moveSpeed = 5;
             wizardCtrl.rotSpeed = 0;
@@ -97,8 +98,9 @@ public class TutorialScene : MonoBehaviour
         {
             wizardCtrl.moveSpeed = 0;
             wizardCtrl.rotSpeed = 2;
+            blocks[0].GetComponent<Block2>().freeze = false;
 
-            if(player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
+            if (player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
             {
                 Debug.Log("Part4 Clear");
                 backBlock.SetActive(false);
