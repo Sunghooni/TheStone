@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialScene : MonoBehaviour
+public class TutorialAction : MonoBehaviour
 {
     public GameObject[] blocks;
     public GameObject backBlock;
     public GameObject player;
     WizardCtrl wizardCtrl;
-    private int partCnt = 1;
+    public int partCnt = 1;
 
     void Awake()
     {
