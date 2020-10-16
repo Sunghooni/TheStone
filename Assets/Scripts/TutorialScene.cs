@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialScene : MonoBehaviour
 {
     public GameObject[] blocks;
+    public GameObject backBlock;
     public GameObject player;
     WizardCtrl wizardCtrl;
     private int partCnt = 1;
@@ -84,13 +85,15 @@ public class TutorialScene : MonoBehaviour
     }
 
     void Part4()
-    {   
+    {
+        backBlock.SetActive(true);
+
         if(player.transform.position.z > -9 && blocks[0].tag.Equals("Staying"))
         {
             wizardCtrl.moveSpeed = 5;
             wizardCtrl.rotSpeed = 0;
         }
-        else
+        else if(!blocks[0].tag.Equals("Moving"))
         {
             wizardCtrl.moveSpeed = 0;
             wizardCtrl.rotSpeed = 2;
@@ -98,6 +101,7 @@ public class TutorialScene : MonoBehaviour
             if(player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
             {
                 Debug.Log("Part4 Clear");
+                backBlock.SetActive(false);
                 partCnt = 5;
             }
         }
@@ -115,7 +119,8 @@ public class TutorialScene : MonoBehaviour
         }
         else if(blocks[1].tag.Equals("Fixed"))
         {
-            if(player.transform.position.z == 0)
+            blocks[2].tag = "Untagged";
+            if (player.transform.position.z == 0)
             {
                 Debug.Log("Part5 Clear");
                 partCnt = 6;
@@ -127,6 +132,7 @@ public class TutorialScene : MonoBehaviour
     {
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
+        backBlock.SetActive(true);
 
         if(blocks[3].tag.Equals("Untagged"))
         {
@@ -134,6 +140,7 @@ public class TutorialScene : MonoBehaviour
         }
         else if(blocks[3].tag.Equals("Fixed"))
         {
+            blocks[3].tag = "Untagged";
             Debug.Log("Part6 Clear");
             partCnt = 7;
         }
@@ -143,7 +150,7 @@ public class TutorialScene : MonoBehaviour
     {
         wizardCtrl.moveSpeed = 5;
         wizardCtrl.rotSpeed = 0;
-
+        
         if(player.transform.position.z >= 12)
         {
             Debug.Log("Tutorial Finished");
