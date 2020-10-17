@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialAction : MonoBehaviour
+public class TutorialCtrl : MonoBehaviour
 {
     WizardCtrl wizardCtrl;
     TutorialUI tutotialUI;
+
     public GameObject[] blocks;
-    public GameObject[] arrows;
+    public GameObject[] circles;
+
     public GameObject backBlock;
     public GameObject player;
+
     public int partCnt = 1;
 
     void Awake()
@@ -25,6 +28,8 @@ public class TutorialAction : MonoBehaviour
 
     private void Update()
     {
+        CircleCtrl();
+
         switch(partCnt)
         {
             case 1:
@@ -54,6 +59,30 @@ public class TutorialAction : MonoBehaviour
             case 7:
                 Part7();
                 tutotialUI.UI_7();
+                break;
+        }
+    }
+
+    void CircleCtrl()
+    {
+        switch(partCnt)
+        {
+            case 1:
+                circles[0].SetActive(true);
+                break;
+            case 3:
+                circles[0].SetActive(false);
+                circles[1].SetActive(true);
+                break;
+            case 4:
+                if(!blocks[0].tag.Equals("Moving") && player.transform.position.z <= -9)
+                    circles[1].SetActive(false);
+                break;
+            case 6:
+                circles[2].SetActive(true);
+                break;
+            case 8:
+                circles[2].SetActive(false);
                 break;
         }
     }
@@ -173,7 +202,7 @@ public class TutorialAction : MonoBehaviour
         wizardCtrl.moveSpeed = 5;
         wizardCtrl.rotSpeed = 0;
         
-        if(player.transform.position.z >= 12)
+        if(player.transform.position.z >= 15)
         {
             Debug.Log("Tutorial Finished");
             partCnt = 8;
