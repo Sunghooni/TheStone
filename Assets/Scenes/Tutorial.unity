@@ -6391,7 +6391,7 @@ GameObject:
   - component: {fileID: 206890392}
   - component: {fileID: 206890391}
   m_Layer: 0
-  m_Name: CFX3_ResurrectionLight_Circle (1)
+  m_Name: Light_Citcle(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13038,7 +13038,7 @@ GameObject:
   - component: {fileID: 463168951}
   - component: {fileID: 463133719}
   m_Layer: 0
-  m_Name: CFX3_ResurrectionLight_Circle
+  m_Name: Light_Citcle(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18244,7 +18244,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -18297,7 +18297,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 2
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -18350,7 +18350,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -18403,7 +18403,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -66000,7 +66000,7 @@ GameObject:
   - component: {fileID: 1862373206}
   - component: {fileID: 1862373205}
   m_Layer: 0
-  m_Name: CFX3_ResurrectionLight_Circle (2)
+  m_Name: Light_Citcle(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72004,8 +72004,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999501388}
+  - component: {fileID: 1999501390}
   - component: {fileID: 1999501387}
   - component: {fileID: 1999501389}
+  - component: {fileID: 1999501391}
   m_Layer: 0
   m_Name: TutorialCtrl
   m_TagString: Untagged
@@ -72030,10 +72032,6 @@ MonoBehaviour:
   - {fileID: 1208473756}
   - {fileID: 1757843479}
   - {fileID: 922454201}
-  circles:
-  - {fileID: 448068823}
-  - {fileID: 206890388}
-  - {fileID: 1862373202}
   backBlock: {fileID: 66997168}
   player: {fileID: 4922031261439818788}
   partCnt: 1
@@ -72075,6 +72073,35 @@ MonoBehaviour:
   - click both blocks
   - you can teleport to fixed block
   - go to the exit!
+--- !u!114 &1999501390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999501386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2438c74ad3600754da04ee6602fc6649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1999501391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999501386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dc442ec0cb64f4eb8d7a71a8e50f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4922031261439818788}
+  circles:
+  - {fileID: 448068823}
+  - {fileID: 206890388}
+  - {fileID: 1862373202}
 --- !u!1 &2018540014
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,7 @@ using UnityEngine;
 public class TutorialCtrl : MonoBehaviour
 {
     WizardCtrl wizardCtrl;
-    TutorialUI tutotialUI;
-
     public GameObject[] blocks;
-    public GameObject[] circles;
-
     public GameObject backBlock;
     public GameObject player;
 
@@ -17,7 +13,6 @@ public class TutorialCtrl : MonoBehaviour
 
     void Awake()
     {
-        tutotialUI = this.GetComponent<TutorialUI>();
         wizardCtrl = player.GetComponent<WizardCtrl>();
         wizardCtrl.moveSpeed = 0;
         foreach(GameObject obj in blocks)
@@ -26,68 +21,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        CircleCtrl();
-
-        switch(partCnt)
-        {
-            case 1:
-                Part1();
-                tutotialUI.UI_1();
-                break;
-            case 2:
-                Part2();
-                tutotialUI.UI_2();
-                break;
-            case 3:
-                Part3();
-                tutotialUI.UI_3();
-                break;
-            case 4:
-                Part4();
-                tutotialUI.UI_4();
-                break;
-            case 5:
-                Part5();
-                tutotialUI.UI_5();
-                break;
-            case 6:
-                Part6();
-                tutotialUI.UI_6();
-                break;
-            case 7:
-                Part7();
-                tutotialUI.UI_7();
-                break;
-        }
-    }
-
-    void CircleCtrl()
-    {
-        switch(partCnt)
-        {
-            case 1:
-                circles[0].SetActive(true);
-                break;
-            case 3:
-                circles[0].SetActive(false);
-                circles[1].SetActive(true);
-                break;
-            case 4:
-                if(!blocks[0].tag.Equals("Moving") && player.transform.position.z <= -9)
-                    circles[1].SetActive(false);
-                break;
-            case 6:
-                circles[2].SetActive(true);
-                break;
-            case 8:
-                circles[2].SetActive(false);
-                break;
-        }
-    }
-
-    void Part1()
+    public void Part1()
     {
         if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
         {
@@ -96,7 +30,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part2()
+    public void Part2()
     {
         player.transform.eulerAngles = new Vector3(0, 180, 0);
         wizardCtrl.rotSpeed = 0;
@@ -109,7 +43,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part3()
+    public void Part3()
     {
         wizardCtrl.rotSpeed = 0;
         wizardCtrl.moveSpeed = 0;
@@ -126,7 +60,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part4()
+    public void Part4()
     {
         backBlock.SetActive(true);
 
@@ -150,7 +84,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part5()
+    public void Part5()
     {
         player.transform.eulerAngles = new Vector3(0, 0, 0);
         wizardCtrl.moveSpeed = 0;
@@ -179,7 +113,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part6()
+    public void Part6()
     {
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
@@ -197,7 +131,7 @@ public class TutorialCtrl : MonoBehaviour
         }
     }
 
-    void Part7()
+    public void Part7()
     {
         wizardCtrl.moveSpeed = 5;
         wizardCtrl.rotSpeed = 0;
