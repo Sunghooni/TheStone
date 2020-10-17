@@ -7,6 +7,7 @@ public class TutorialAction : MonoBehaviour
     WizardCtrl wizardCtrl;
     TutorialUI tutotialUI;
     public GameObject[] blocks;
+    public GameObject[] arrows;
     public GameObject backBlock;
     public GameObject player;
     public int partCnt = 1;
