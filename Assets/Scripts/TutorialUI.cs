@@ -8,25 +8,33 @@ public class TutorialUI : MonoBehaviour
     public Canvas tutorialUI;
     public Text[] texts;
     public string[] sentences;
-    TutorialAction tutorialAct;
 
-    private void Awake()
+    public void UI_1()
     {
-        tutorialAct = gameObject.GetComponent<TutorialAction>();
+        texts[0].text = sentences[0];
     }
-
-    private void Update()
+    public void UI_2()
     {
-        switch(tutorialAct.partCnt)
-        {
-            case 1:
-                UI_1();
-                break;
-        }
+        texts[0].text = sentences[1];
     }
-
-    void UI_1()
+    public void UI_3()
     {
-        texts[1].text = sentences[0];
+        texts[0].text = sentences[2];
+    }
+    public void UI_4()
+    {
+        texts[0].text = sentences[3];
+    }
+    public void UI_5()
+    {
+        texts[0].text = sentences[4];
+    }
+    public void UI_6()
+    {
+        texts[0].text = sentences[5];
+    }
+    public void UI_7()
+    {
+        texts[0].text = sentences[6];
     }
 }
