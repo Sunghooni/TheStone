@@ -30,11 +30,11 @@ public class MouseCtrl : MonoBehaviour
                 if (clickedObj.transform.parent)
                     clickedObj = clickedObj.transform.parent.gameObject;
 
-                if (clickedObj.transform.tag == "Ready")
+                if (clickedObj.transform.tag.Equals("Ready"))
                 {
                     clickedObj.transform.tag = "Moving";
                 }
-                else if (clickedObj.transform.tag == "Fixed")
+                else if (clickedObj.transform.tag.Equals("Fixed"))
                 {
                     teleport.teleportPlay(clickedObj);
                 }

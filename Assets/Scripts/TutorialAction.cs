@@ -61,7 +61,6 @@ public class TutorialAction : MonoBehaviour
     {
         if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
         {
-            player.transform.eulerAngles = new Vector3(0, 180, 0);
             Debug.Log("Part1 Clear");
             partCnt = 2;
         }
@@ -69,8 +68,10 @@ public class TutorialAction : MonoBehaviour
 
     void Part2()
     {
+        player.transform.eulerAngles = new Vector3(0, 180, 0);
         wizardCtrl.rotSpeed = 0;
         wizardCtrl.moveSpeed = 5;
+
         if(player.transform.position.z < -5.8f)
         {
             Debug.Log("Part2 Clear");
@@ -112,7 +113,6 @@ public class TutorialAction : MonoBehaviour
 
             if (player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
             {
-                player.transform.eulerAngles = new Vector3(0, 0, 0);
                 backBlock.SetActive(false);
                 Debug.Log("Part4 Clear");
                 partCnt = 5;
@@ -122,6 +122,7 @@ public class TutorialAction : MonoBehaviour
 
     void Part5()
     {
+        player.transform.eulerAngles = new Vector3(0, 0, 0);
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
 
