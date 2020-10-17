@@ -15,19 +15,37 @@ public class LightCircle : MonoBehaviour
                 circles[0].SetActive(true);
                 break;
             case 3:
-                circles[0].SetActive(false);
+                StopLoop(0);
                 circles[1].SetActive(true);
                 break;
             case 4:
                 if (player.transform.position.z <= -9)
-                    circles[1].SetActive(false);
+                    StopLoop(1);
                 break;
             case 6:
                 circles[2].SetActive(true);
                 break;
             case 8:
-                circles[2].SetActive(false);
+                StopLoop(2);
                 break;
+        }
+    }
+
+    void StopLoop(int partCnt)
+    {
+        int childrenCnt = circles[partCnt].transform.childCount;
+        ParticleSystem eft = circles[partCnt].GetComponent<ParticleSystem>();
+
+        var parentMain = eft.main;
+        parentMain.loop = false;
+
+        GameObject child;
+        for (int i = 0; i < childrenCnt; i++)
+        {
+            child = circles[partCnt].transform.GetChild(i).gameObject;
+            eft = child.GetComponent<ParticleSystem>();
+            var childMain = eft.main;
+            childMain.loop = false;
         }
     }
 }
