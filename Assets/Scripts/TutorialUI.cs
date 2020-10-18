@@ -39,6 +39,7 @@ public class TutorialUI : MonoBehaviour
         arrows[1].SetActive(true);
         arrows[2].SetActive(true);
         texts[0].text = "click both blocks";
+        texts[1].text = "collide block is fixed";
 
         if(blocks[1].tag.Equals("Moving") && blocks[2].tag.Equals("Moving"))
         {
@@ -49,6 +50,7 @@ public class TutorialUI : MonoBehaviour
         {
             arrows[3].SetActive(true);
             texts[0].text = "Click Fixed Block";
+            texts[1].text = "";
             if(teleportEft.isPlaying)
             {
                 arrows[3].SetActive(false);
