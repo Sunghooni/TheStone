@@ -142,4 +142,10 @@ public class TutorialCtrl : MonoBehaviour
             tutorialScene.partCnt = 8;
         }
     }
+
+    public void Part8()
+    {
+        wizardCtrl.moveSpeed = 0;
+        wizardCtrl.rotSpeed = 0;
+    }
 }

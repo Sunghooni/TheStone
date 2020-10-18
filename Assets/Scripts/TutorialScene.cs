@@ -54,6 +54,8 @@ public class TutorialScene : MonoBehaviour
                 tutorialUI.UI_7();
                 break;
             case 8:
+                tutorialCtrl.Part8();
+                tutorialUI.UI_8();
                 lightCircle.StopLoop(2);
                 break;
         }
