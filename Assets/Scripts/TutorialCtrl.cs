@@ -5,15 +5,15 @@ using UnityEngine;
 public class TutorialCtrl : MonoBehaviour
 {
     WizardCtrl wizardCtrl;
+    TutorialScene tutorialScene;
     public GameObject[] blocks;
     public GameObject backBlock;
     public GameObject player;
 
-    public int partCnt = 1;
-
     void Awake()
     {
         wizardCtrl = player.GetComponent<WizardCtrl>();
+        tutorialScene = gameObject.GetComponent<TutorialScene>();
         wizardCtrl.moveSpeed = 0;
         foreach(GameObject obj in blocks)
         {
@@ -26,7 +26,7 @@ public class TutorialCtrl : MonoBehaviour
         if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
         {
             Debug.Log("Part1 Clear");
-            partCnt = 2;
+            tutorialScene.partCnt = 2;
         }
     }
 
@@ -39,7 +39,7 @@ public class TutorialCtrl : MonoBehaviour
         if(player.transform.position.z < -5.8f)
         {
             Debug.Log("Part2 Clear");
-            partCnt = 3;
+            tutorialScene.partCnt = 3;
         }
     }
 
@@ -56,7 +56,7 @@ public class TutorialCtrl : MonoBehaviour
         {
             Debug.Log("Part3 Clear");
             blocks[0].GetComponent<Block2>().freeze = true;
-            partCnt = 4;
+            tutorialScene.partCnt = 4;
         }
     }
 
@@ -79,7 +79,7 @@ public class TutorialCtrl : MonoBehaviour
             {
                 backBlock.SetActive(false);
                 Debug.Log("Part4 Clear");
-                partCnt = 5;
+                tutorialScene.partCnt = 5;
             }
         }
     }
@@ -108,7 +108,7 @@ public class TutorialCtrl : MonoBehaviour
             if (player.transform.position.z == 0)
             {
                 Debug.Log("Part5 Clear");
-                partCnt = 6;
+                tutorialScene.partCnt = 6;
             }
         }
     }
@@ -127,7 +127,7 @@ public class TutorialCtrl : MonoBehaviour
         {
             blocks[3].tag = "Untagged";
             Debug.Log("Part6 Clear");
-            partCnt = 7;
+            tutorialScene.partCnt = 7;
         }
     }
 
@@ -139,7 +139,7 @@ public class TutorialCtrl : MonoBehaviour
         if(player.transform.position.z >= 15)
         {
             Debug.Log("Tutorial Finished");
-            partCnt = 8;
+            tutorialScene.partCnt = 8;
         }
     }
 }

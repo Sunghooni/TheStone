@@ -4,37 +4,17 @@ using UnityEngine;
 
 public class LightCircle : MonoBehaviour
 {
-    public GameObject player;
     public GameObject[] circles;
 
-    public void CircleCtrl(int partCnt)
+    public void StartPtcl(int circleCnt)
     {
-        switch (partCnt)
-        {
-            case 1:
-                circles[0].SetActive(true);
-                break;
-            case 3:
-                StopLoop(0);
-                circles[1].SetActive(true);
-                break;
-            case 4:
-                if (player.transform.position.z <= -9)
-                    StopLoop(1);
-                break;
-            case 6:
-                circles[2].SetActive(true);
-                break;
-            case 8:
-                StopLoop(2);
-                break;
-        }
+        circles[circleCnt].SetActive(true);
     }
 
-    void StopLoop(int partCnt)
+    public void StopLoop(int circleCnt)
     {
-        int childrenCnt = circles[partCnt].transform.childCount;
-        ParticleSystem eft = circles[partCnt].GetComponent<ParticleSystem>();
+        int childrenCnt = circles[circleCnt].transform.childCount;
+        ParticleSystem eft = circles[circleCnt].GetComponent<ParticleSystem>();
 
         var parentMain = eft.main;
         parentMain.loop = false;
@@ -42,7 +22,7 @@ public class LightCircle : MonoBehaviour
         GameObject child;
         for (int i = 0; i < childrenCnt; i++)
         {
-            child = circles[partCnt].transform.GetChild(i).gameObject;
+            child = circles[circleCnt].transform.GetChild(i).gameObject;
             eft = child.GetComponent<ParticleSystem>();
             var childMain = eft.main;
             childMain.loop = false;
