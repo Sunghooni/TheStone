@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightCircle : MonoBehaviour
 {
     public GameObject[] circles;
+    public GameObject player;
 
     public void StartPtcl(int circleCnt)
     {
@@ -15,6 +16,9 @@ public class LightCircle : MonoBehaviour
     {
         int childrenCnt = circles[circleCnt].transform.childCount;
         ParticleSystem eft = circles[circleCnt].GetComponent<ParticleSystem>();
+
+        if(circleCnt == 1 && player.transform.position.z > -9)
+            return;
 
         var parentMain = eft.main;
         parentMain.loop = false;
