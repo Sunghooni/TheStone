@@ -55,7 +55,7 @@ public class TutorialCtrl : MonoBehaviour
         else if (blocks[0].tag.Equals("Staying"))
         {
             Debug.Log("Part3 Clear");
-            blocks[0].GetComponent<Block2>().freeze = true;
+            blocks[0].GetComponent<Block>().freeze = true;
             tutorialScene.partCnt = 4;
         }
     }
@@ -73,7 +73,7 @@ public class TutorialCtrl : MonoBehaviour
         {
             wizardCtrl.moveSpeed = 0;
             wizardCtrl.rotSpeed = 2;
-            blocks[0].GetComponent<Block2>().freeze = false;
+            blocks[0].GetComponent<Block>().freeze = false;
 
             if (player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
             {
@@ -94,13 +94,13 @@ public class TutorialCtrl : MonoBehaviour
         {
             blocks[1].tag = "Ready";
             blocks[2].tag = "Ready";
-            blocks[1].GetComponent<Block1>().freeze = true;
-            blocks[2].GetComponent<Block2>().freeze = true;
+            blocks[1].GetComponent<Block>().freeze = true;
+            blocks[2].GetComponent<Block>().freeze = true;
         }
         else if(blocks[1].tag.Equals("Moving") && blocks[2].tag.Equals("Moving"))
         {
-            blocks[1].GetComponent<Block1>().freeze = false;
-            blocks[2].GetComponent<Block2>().freeze = false;
+            blocks[1].GetComponent<Block>().freeze = false;
+            blocks[2].GetComponent<Block>().freeze = false;
         }
         else if(blocks[1].tag.Equals("Fixed"))
         {

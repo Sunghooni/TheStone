@@ -44266,8 +44266,8 @@ GameObject:
   - component: {fileID: 922454206}
   - component: {fileID: 922454205}
   - component: {fileID: 922454204}
-  - component: {fileID: 922454203}
   - component: {fileID: 922454202}
+  - component: {fileID: 922454203}
   m_Layer: 0
   m_Name: FrontBlock
   m_TagString: Ready
@@ -44300,15 +44300,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 922454201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93fa6f495bcec5d47a8dcde4c018fcb0, type: 3}
+  m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originPos: {x: 0, y: 0, z: 0}
   toPos: {x: 0, y: 0, z: 0}
+  MoveDistance: 9
   canGo: 1
   stopMove: 0
   freeze: 0
-  MoveDistance: 9
 --- !u!65 &922454204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45828,15 +45828,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109774516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bb08af013bfb046a225d2e093ed31c, type: 3}
+  m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originPos: {x: 0, y: 0, z: 0}
   toPos: {x: 0, y: 0, z: 0}
+  MoveDistance: 6
   canGo: 1
   stopMove: 0
   freeze: 0
-  MoveDistance: 6
 --- !u!54 &1109774522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51580,8 +51580,8 @@ GameObject:
   - component: {fileID: 1208473759}
   - component: {fileID: 1208473758}
   - component: {fileID: 1208473762}
-  - component: {fileID: 1208473761}
   - component: {fileID: 1208473763}
+  - component: {fileID: 1208473761}
   m_Layer: 0
   m_Name: RightBlock
   m_TagString: Ready
@@ -51676,15 +51676,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1208473756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93fa6f495bcec5d47a8dcde4c018fcb0, type: 3}
+  m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originPos: {x: 0, y: 0, z: 0}
   toPos: {x: 0, y: 0, z: 0}
+  MoveDistance: 9
   canGo: 1
   stopMove: 0
   freeze: 0
-  MoveDistance: 9
 --- !u!65 &1208473762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60573,15 +60573,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1757843479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bb08af013bfb046a225d2e093ed31c, type: 3}
+  m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   originPos: {x: 0, y: 0, z: 0}
   toPos: {x: 0, y: 0, z: 0}
+  MoveDistance: 6
   canGo: 1
   stopMove: 0
   freeze: 0
-  MoveDistance: 6
 --- !u!65 &1757843485
 BoxCollider:
   m_ObjectHideFlags: 0

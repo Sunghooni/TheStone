@@ -8,9 +8,21 @@ public class Block : MonoBehaviour
     public Vector3 originPos = Vector3.zero;
     public Vector3 toPos = Vector3.zero;
 
+    public float MoveDistance = 0;
     public bool canGo = true;
     public bool stopMove = false;
     public bool freeze = false;
+
+    void Awake()
+    {
+        originPos = this.transform.position;
+        toPos = originPos + transform.right * -MoveDistance;
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
 
     public void Move()
     {
