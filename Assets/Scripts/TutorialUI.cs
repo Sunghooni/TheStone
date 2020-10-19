@@ -9,7 +9,6 @@ public class TutorialUI : MonoBehaviour
     public GameObject[] blocks;
     public Text[] texts;
     public GameObject[] arrows;
-    public GameObject clearUI;
     public ParticleSystem teleportEft;
 
     public void UI_1()
@@ -76,6 +75,6 @@ public class TutorialUI : MonoBehaviour
     public void UI_8()
     {
         texts[0].text = "";
-        clearUI.SetActive(true);
+        texts[2].text = "TUTORIAL CLEAR!";
     }
 }
