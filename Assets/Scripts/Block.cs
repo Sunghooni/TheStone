@@ -95,10 +95,12 @@ public class Block : MonoBehaviour
 
         if (triggerObj.tag == "Moving" || triggerObj.tag == "Fixed" || triggerObj.tag == "Staying")
         {
+            Debug.Log("Hit");
+            stopMove = true;
+
+            audioSource.Stop();
             audioSource.clip = clips[1];
             audioSource.Play();
-            stopMove = true;
-            Debug.Log("Hit");
         }
     }
 }
