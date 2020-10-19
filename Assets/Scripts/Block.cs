@@ -8,6 +8,7 @@ public class Block : MonoBehaviour
     public Vector3 originPos = Vector3.zero;
     public Vector3 toPos = Vector3.zero;
 
+    public AudioSource blockCollide;
     public float MoveDistance = 0;
     public bool canGo = true;
     public bool stopMove = false;
@@ -45,6 +46,7 @@ public class Block : MonoBehaviour
             if (stopMove && timer >= 2.1f)
             {
                 gameObject.tag = "Fixed";
+                blockCollide.Play();
                 break;
             }
 
