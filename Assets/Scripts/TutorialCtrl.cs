@@ -6,6 +6,7 @@ public class TutorialCtrl : MonoBehaviour
 {
     WizardCtrl wizardCtrl;
     TutorialScene tutorialScene;
+
     public GameObject[] blocks;
     public GameObject backBlock;
     public GameObject player;
@@ -23,7 +24,7 @@ public class TutorialCtrl : MonoBehaviour
 
     public void Part1()
     {
-        if(player.transform.eulerAngles.y > 179 && player.transform.eulerAngles.y < 181)
+        if(player.transform.eulerAngles.y > 178 && player.transform.eulerAngles.y < 182)
         {
             Debug.Log("Part1 Clear");
             tutorialScene.partCnt = 2;
@@ -75,10 +76,10 @@ public class TutorialCtrl : MonoBehaviour
             wizardCtrl.rotSpeed = 2;
             blocks[0].GetComponent<Block>().freeze = false;
 
-            if (player.transform.eulerAngles.y < 1 && player.transform.eulerAngles.y >= -1)
+            if (player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= -2)
             {
-                backBlock.SetActive(false);
                 Debug.Log("Part4 Clear");
+                backBlock.SetActive(false);
                 tutorialScene.partCnt = 5;
             }
         }
@@ -125,8 +126,8 @@ public class TutorialCtrl : MonoBehaviour
         }
         else if(blocks[3].tag.Equals("Fixed"))
         {
-            blocks[3].tag = "Untagged";
             Debug.Log("Part6 Clear");
+            blocks[3].tag = "Untagged";
             tutorialScene.partCnt = 7;
         }
     }
