@@ -22,12 +22,15 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_3()
     {
-        arrows[0].SetActive(true);
+        if(blocks[0].tag.Equals("Untagged"))
+            arrows[0].SetActive(true);
+
         texts[0].text = "click this block to act";
 
         if(blocks[0].transform.tag.Equals("Moving"))
         {
             arrows[0].SetActive(false);
+            Debug.Log("SetFalse");
         }
     }
     public void UI_4()
@@ -36,8 +39,11 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_5()
     {
-        arrows[1].SetActive(true);
-        arrows[2].SetActive(true);
+        if(blocks[1].tag.Equals("Ready"))
+        {
+            arrows[1].SetActive(true);
+            arrows[2].SetActive(true);
+        }
         texts[0].text = "click both blocks";
         texts[1].text = "collide block is fixed";
 
@@ -69,7 +75,7 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_8()
     {
-        texts[0].text = "";
-        texts[2].text = "tutorial clear!";
+        texts[0].text = "tutorial clear!";
+        //texts[2].text = "tutorial clear!";
     }
 }
