@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47937666}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalPosition: {x: 0, y: 9.5, z: 0}
   m_LocalScale: {x: 3, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 165203958}
@@ -44523,12 +44523,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  toPos: {x: 0, y: 0, z: 0}
-  blockCollide: {fileID: 922454209}
+  audioSource: {fileID: 922454209}
+  clips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
-  canGo: 1
-  stopMove: 0
   freeze: 0
 --- !u!65 &922454204
 BoxCollider:
@@ -44631,7 +44630,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -46149,12 +46148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  toPos: {x: 0, y: 0, z: 0}
-  blockCollide: {fileID: 1109774524}
+  audioSource: {fileID: 1109774524}
+  clips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
-  canGo: 1
-  stopMove: 0
   freeze: 0
 --- !u!54 &1109774522
 Rigidbody:
@@ -46195,7 +46193,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -52095,12 +52093,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  toPos: {x: 0, y: 0, z: 0}
-  blockCollide: {fileID: 922454209}
+  audioSource: {fileID: 1208473764}
+  clips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
-  canGo: 1
-  stopMove: 0
   freeze: 0
 --- !u!65 &1208473762
 BoxCollider:
@@ -52141,7 +52138,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -61090,12 +61087,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPos: {x: 0, y: 0, z: 0}
-  toPos: {x: 0, y: 0, z: 0}
-  blockCollide: {fileID: 922454209}
+  audioSource: {fileID: 1757843487}
+  clips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
-  canGo: 1
-  stopMove: 0
   freeze: 0
 --- !u!65 &1757843485
 BoxCollider:
@@ -61136,7 +61132,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

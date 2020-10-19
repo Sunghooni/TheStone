@@ -5,14 +5,15 @@ using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
-    public Vector3 originPos = Vector3.zero;
-    public Vector3 toPos = Vector3.zero;
-
-    public AudioSource blockCollide;
+    public AudioSource audioSource;
+    public AudioClip[] clips;
     public float MoveDistance = 0;
-    public bool canGo = true;
-    public bool stopMove = false;
     public bool freeze = false;
+
+    private Vector3 originPos = Vector3.zero;
+    private Vector3 toPos = Vector3.zero;
+    private bool canGo = true;
+    private bool stopMove = false;
 
     void Awake()
     {
@@ -37,39 +38,49 @@ public class Block : MonoBehaviour
     IEnumerator Moving()
     {
         float timer = 0;
+        audioSource.clip = clips[0];
+        audioSource.Play();
 
         while(true)
         {
             if(!freeze)
+            {
                 timer += Time.deltaTime;
-
-            if (stopMove && timer >= 2.1f)
-            {
-                gameObject.tag = "Fixed";
-                blockCollide.Play();
-                break;
+                audioSource.Play();
             }
+            else
+                audioSource.Pause();
 
-            if (timer <= 2.1f)
+            if(this.transform.tag.Equals("Moving"))
             {
-                gameObject.tag = "Moving";
                 this.transform.position = Vector3.Lerp(originPos, toPos, timer / 2);
+                if(timer > 2)
+                {
+                    this.transform.tag = "Staying";
+                    timer = 0;
+                }
             }
-            else if (timer > 2.1f && timer < 3.2f)
+            else if(this.transform.tag.Equals("Staying"))
             {
-                gameObject.tag = "Staying";
+                if (stopMove)
+                {
+                    gameObject.tag = "Fixed";
+                    break;
+                }
+                else if (timer > 1)
+                {
+                    this.transform.tag = "Backing";
+                    timer = 0;
+                }
             }
-            else if (timer >= 3.2f)
+            else if(this.transform.tag.Equals("Backing"))
             {
-                gameObject.tag = "Backing";
-                this.transform.position = Vector3.Lerp(toPos, originPos, (timer - 3.2f) / 2);
-            }
-
-            if (timer > 5.3f)
-            {
-                gameObject.tag = "Ready";
-                canGo = true;
-                break;
+                this.transform.position = Vector3.Lerp(toPos, originPos, timer / 2);
+                if(timer > 2)
+                {
+                    this.transform.tag = "Ready";
+                    break;
+                }
             }
             yield return new WaitForFixedUpdate();
         }
@@ -84,6 +95,8 @@ public class Block : MonoBehaviour
 
         if (triggerObj.tag == "Moving" || triggerObj.tag == "Fixed" || triggerObj.tag == "Staying")
         {
+            audioSource.clip = clips[1];
+            audioSource.Play();
             stopMove = true;
             Debug.Log("Hit");
         }

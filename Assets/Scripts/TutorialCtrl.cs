@@ -75,7 +75,7 @@ public class TutorialCtrl : MonoBehaviour
             wizardCtrl.rotSpeed = 2;
             blocks[0].GetComponent<Block>().freeze = false;
 
-            if (player.transform.eulerAngles.y < 2 && player.transform.eulerAngles.y >= 0)
+            if (player.transform.eulerAngles.y < 1 && player.transform.eulerAngles.y >= -1)
             {
                 backBlock.SetActive(false);
                 Debug.Log("Part4 Clear");
