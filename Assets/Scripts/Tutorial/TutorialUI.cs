@@ -76,5 +76,6 @@ public class TutorialUI : MonoBehaviour
     {
         texts[0].text = "";
         texts[2].text = "TUTORIAL CLEAR!";
+        texts[3].text = "TUTORIAL CLEAR!";
     }
 }
