@@ -5550,7 +5550,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
 --- !u!65 &972254376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5620,9 +5620,12 @@ Animation:
   m_GameObject: {fileID: 972254374}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: e2830a462b4f65842931c156698d6abe, type: 2}
+  m_Animation: {fileID: 7400000, guid: 311ffeeb806302a49b9c2b867bb7189d, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e2830a462b4f65842931c156698d6abe, type: 2}
+  - {fileID: 7400000, guid: 29740bb8d7d243f45a106dc2d3b823ee, type: 2}
+  - {fileID: 7400000, guid: f2e64f770a8031c48831626158ba9cfe, type: 2}
+  - {fileID: 7400000, guid: 311ffeeb806302a49b9c2b867bb7189d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
