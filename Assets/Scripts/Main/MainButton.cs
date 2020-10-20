@@ -8,7 +8,8 @@ public class MainButton : MonoBehaviour
     public void PlayBtnOnclick()
     {
         Debug.Log("PlayBtn");
-        SceneManager.LoadScene("Tutorial");
+        LoadingScene.LoadScene("Tutorial");
+        //SceneManager.LoadScene("Tutorial");
     }
 
     public void StageBtnOnclick()
