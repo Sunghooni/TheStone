@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class MainButton : MonoBehaviour
 {
-    void PlayBtnOnclick()
+    public void PlayBtnOnclick()
     {
 
     }
 
-    void StageBtnOnclick()
+    public void StageBtnOnclick()
     {
 
     }
 
-    void OptionBtnOnclick()
+    public void OptionBtnOnclick()
     {
 
     }
