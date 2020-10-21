@@ -14,17 +14,20 @@ public class TutorialUI : MonoBehaviour
     public void UI_1()
     {
         texts[0].text = "press a,d to rotate";
+        texts[1].text = "look behind";
     }
     public void UI_2()
     {
         texts[0].text = "press w,s to move";
+        texts[1].text = "go forward";
     }
     public void UI_3()
     {
-        if(blocks[0].tag.Equals("Untagged"))
+        if (blocks[0].tag.Equals("Ready"))
             arrows[0].SetActive(true);
-
+        
         texts[0].text = "click this block to act";
+        texts[1].text = "";
 
         if(blocks[0].transform.tag.Equals("Moving"))
         {
