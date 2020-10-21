@@ -10,7 +10,7 @@ public class TutorialUI : MonoBehaviour
     public Text[] texts;
     public GameObject[] arrows;
     public ParticleSystem teleportEft;
-
+    public GameObject homeBtn;
     public void UI_1()
     {
         texts[0].text = "press a,d to rotate";
@@ -77,5 +77,6 @@ public class TutorialUI : MonoBehaviour
         texts[0].text = "";
         texts[2].text = "TUTORIAL CLEAR!";
         texts[3].text = "TUTORIAL CLEAR!";
+        homeBtn.SetActive(true);
     }
 }
