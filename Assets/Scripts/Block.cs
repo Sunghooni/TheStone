@@ -28,7 +28,7 @@ public class Block : MonoBehaviour
 
     public void Move()
     {
-        if (this.transform.tag == "Moving" && canGo)
+        if (this.transform.tag.Equals("Moving") && canGo)
         {
             StartCoroutine(Moving());
             canGo = false;
@@ -40,15 +40,15 @@ public class Block : MonoBehaviour
         float timer = 0;
         //audioSource.clip = clips[0];
         //audioSource.Play();
-
-        while(true)
+        Debug.Log(toPos.x + " " + toPos.y + " " + toPos.z);
+        while (true)
         {
             if(!freeze)
             {
                 timer += Time.deltaTime;
                 //audioSource.Play();
             }
-            else
+            //else
                 //audioSource.Pause();
 
             if(this.transform.tag.Equals("Moving"))
@@ -79,6 +79,7 @@ public class Block : MonoBehaviour
                 if(timer > 2)
                 {
                     this.transform.tag = "Ready";
+                    canGo = true;
                     break;
                 }
             }
