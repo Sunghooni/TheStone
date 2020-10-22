@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip[] clips;
+    //public AudioSource audioSource;
+    //public AudioClip[] clips;
     public float MoveDistance = 0;
     public bool freeze = false;
 
@@ -38,18 +38,18 @@ public class Block : MonoBehaviour
     IEnumerator Moving()
     {
         float timer = 0;
-        audioSource.clip = clips[0];
-        audioSource.Play();
+        //audioSource.clip = clips[0];
+        //audioSource.Play();
 
         while(true)
         {
             if(!freeze)
             {
                 timer += Time.deltaTime;
-                audioSource.Play();
+                //audioSource.Play();
             }
             else
-                audioSource.Pause();
+                //audioSource.Pause();
 
             if(this.transform.tag.Equals("Moving"))
             {
@@ -98,9 +98,9 @@ public class Block : MonoBehaviour
             Debug.Log("Hit");
             stopMove = true;
 
-            audioSource.Stop();
-            audioSource.clip = clips[1];
-            audioSource.Play();
+            //audioSource.Stop();
+            //audioSource.clip = clips[1];
+            //audioSource.Play();
         }
     }
 }
