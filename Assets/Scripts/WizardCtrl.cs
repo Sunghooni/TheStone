@@ -22,7 +22,6 @@ public class WizardCtrl : MonoBehaviour
     private void FixedUpdate()
     {
         MoveCtrl();
-        GravityCtrl();
     }
 
     private void MoveCtrl()
@@ -42,18 +41,5 @@ public class WizardCtrl : MonoBehaviour
             anim.SetBool("run", true);
         else
             anim.SetBool("run", false);
-    }
-
-    private void GravityCtrl()
-    {
-        RaycastHit hit;
-        if(Physics.Raycast(gameObject.transform.position, Vector3.down, out hit, 1f))
-        {
-            if (hit.transform.tag.Equals("Backing"))
-            {
-                var pos = gameObject.transform.position;
-                gameObject.transform.position = new Vector3(pos.x, hit.transform.position.y + 1.5f, pos.z);
-            }
-        }
     }
 }
