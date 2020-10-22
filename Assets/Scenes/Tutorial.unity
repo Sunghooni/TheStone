@@ -44918,11 +44918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 922454209}
-  clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
+  MoveSpeed: 2
+  StayTime: 1
   freeze: 0
 --- !u!65 &922454204
 BoxCollider:
@@ -46621,11 +46619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1109774524}
-  clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
+  MoveSpeed: 2
+  StayTime: 1
   freeze: 0
 --- !u!54 &1109774522
 Rigidbody:
@@ -52566,11 +52562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1208473764}
-  clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
+  MoveSpeed: 2
+  StayTime: 1
   freeze: 0
 --- !u!65 &1208473762
 BoxCollider:
@@ -61560,11 +61554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1757843487}
-  clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
+  MoveSpeed: 2
+  StayTime: 1
   freeze: 0
 --- !u!65 &1757843485
 BoxCollider:

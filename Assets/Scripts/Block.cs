@@ -8,6 +8,8 @@ public class Block : MonoBehaviour
     //public AudioSource audioSource;
     //public AudioClip[] clips;
     public float MoveDistance = 0;
+    public float MoveSpeed;
+    public float StayTime;
     public bool freeze = false;
 
     private Vector3 originPos = Vector3.zero;
@@ -53,8 +55,8 @@ public class Block : MonoBehaviour
 
             if(this.transform.tag.Equals("Moving"))
             {
-                this.transform.position = Vector3.Lerp(originPos, toPos, timer / 2);
-                if(timer > 2)
+                this.transform.position = Vector3.Lerp(originPos, toPos, timer / MoveSpeed);
+                if(timer > MoveSpeed)
                 {
                     this.transform.tag = "Staying";
                     timer = 0;
@@ -67,7 +69,7 @@ public class Block : MonoBehaviour
                     gameObject.tag = "Fixed";
                     break;
                 }
-                else if (timer > 1)
+                else if (timer > StayTime)
                 {
                     this.transform.tag = "Backing";
                     timer = 0;
@@ -75,8 +77,8 @@ public class Block : MonoBehaviour
             }
             else if(this.transform.tag.Equals("Backing"))
             {
-                this.transform.position = Vector3.Lerp(toPos, originPos, timer / 2);
-                if(timer > 2)
+                this.transform.position = Vector3.Lerp(toPos, originPos, timer / MoveSpeed);
+                if(timer > MoveSpeed)
                 {
                     this.transform.tag = "Ready";
                     canGo = true;
