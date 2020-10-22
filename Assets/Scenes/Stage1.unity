@@ -14043,7 +14043,7 @@ GameObject:
   - component: {fileID: 686184151}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14476,7 +14476,7 @@ GameObject:
   - component: {fileID: 726167900}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14909,7 +14909,7 @@ GameObject:
   - component: {fileID: 820342326}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15033,7 +15033,7 @@ GameObject:
   - component: {fileID: 836658873}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24152,7 +24152,7 @@ GameObject:
   - component: {fileID: 1575962339}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31974,7 +31974,7 @@ GameObject:
   - component: {fileID: 2107054099}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Untagged
+  m_TagString: Ready
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
