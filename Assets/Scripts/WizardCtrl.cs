@@ -51,7 +51,8 @@ public class WizardCtrl : MonoBehaviour
         {
             if (hit.transform.tag.Equals("Backing"))
             {
-                gameObject.transform.position = new Vector3(gameObject.transform.position.x, hit.transform.position.y + 1.5f, gameObject.transform.position.z);
+                var pos = gameObject.transform.position;
+                gameObject.transform.position = new Vector3(pos.x, hit.transform.position.y + 1.5f, pos.z);
             }
         }
     }
