@@ -9,6 +9,8 @@ TagManager:
   - Moving
   - Staying
   - Backing
+  - TriggerOff
+  - TriggerOn
   layers:
   - Default
   - TransparentFX
