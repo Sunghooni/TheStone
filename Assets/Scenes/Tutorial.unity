@@ -44918,6 +44918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 922454209}
+  clips: []
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -46619,6 +46621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1109774524}
+  clips: []
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1
@@ -52562,6 +52566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1208473764}
+  clips: []
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -61554,6 +61560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1757843487}
+  clips: []
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1
