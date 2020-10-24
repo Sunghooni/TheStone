@@ -26,6 +26,7 @@ public class Block : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        //Debug.DrawRay(gameObject.transform.position, -transform.right * 2, Color.red, 1);
     }
 
     public void Move()
@@ -40,15 +41,12 @@ public class Block : MonoBehaviour
     IEnumerator Moving()
     {
         float timer = 0;
-        audioSource.clip = clips[0];
-        audioSource.Play();
-        Debug.Log(toPos.x + " " + toPos.y + " " + toPos.z);
+
         while (true)
         {
             if(!freeze)
             {
                 timer += Time.deltaTime;
-                audioSource.Play();
             }
             else
                 audioSource.Pause();
@@ -56,7 +54,12 @@ public class Block : MonoBehaviour
             if(this.transform.tag.Equals("Moving"))
             {
                 this.transform.position = Vector3.Lerp(originPos, toPos, timer / MoveSpeed);
-                if(timer > MoveSpeed)
+                if (stopMove)
+                {
+                    gameObject.tag = "Fixed";
+                    break;
+                }
+                else if (timer > MoveSpeed)
                 {
                     this.transform.tag = "Staying";
                     timer = 0;
@@ -101,8 +104,7 @@ public class Block : MonoBehaviour
             Debug.Log("Hit");
             stopMove = true;
 
-            audioSource.Stop();
-            audioSource.clip = clips[1];
+            audioSource.clip = clips[0];
             audioSource.Play();
         }
     }

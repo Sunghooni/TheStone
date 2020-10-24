@@ -44919,7 +44919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 922454209}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -46622,7 +46623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1109774524}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1
@@ -52567,7 +52569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1208473764}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -61561,7 +61564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1757843487}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1

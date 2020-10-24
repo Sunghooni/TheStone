@@ -36,7 +36,7 @@ public class MouseCtrl : MonoBehaviour
                 }
                 else if (clickedObj.transform.tag.Equals("Fixed"))
                 {
-                    teleport.teleportPlay(clickedObj);
+                    teleport.teleportPlay(hit.transform.gameObject);
                 }
             }
         }

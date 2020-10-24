@@ -26,8 +26,7 @@ public class TeleportCtrl : MonoBehaviour
             wizardCtrl.rotSpeed = 0;
 
             FindBlockToMove(block);
-            if(targetBlock != null)
-                StartCoroutine(TeleportEft());
+            StartCoroutine(TeleportEft());
         }
     }
 
@@ -37,8 +36,6 @@ public class TeleportCtrl : MonoBehaviour
 
         if (Physics.Raycast(obj.transform.position, Vector3.up, out hit, 3) && !hit.transform.name.Equals("Wizard"))
             FindBlockToMove(hit.transform.gameObject);
-        else if (hit.transform.name.Equals("Untagged"))
-            targetBlock = null;
         else
             targetBlock = obj;
         return;
