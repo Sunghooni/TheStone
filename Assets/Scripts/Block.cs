@@ -16,6 +16,7 @@ public class Block : MonoBehaviour
     private Vector3 toPos = Vector3.zero;
     private bool canGo = true;
     private bool stopMove = false;
+    private bool triggerStop = false;
 
     void Awake()
     {
@@ -54,7 +55,7 @@ public class Block : MonoBehaviour
             if(this.transform.tag.Equals("Moving"))
             {
                 this.transform.position = Vector3.Lerp(originPos, toPos, timer / MoveSpeed);
-                if (stopMove)
+                if (stopMove && triggerStop)
                 {
                     gameObject.tag = "Fixed";
                     break;
@@ -103,6 +104,8 @@ public class Block : MonoBehaviour
         {
             Debug.Log("Hit");
             stopMove = true;
+            triggerStop = true;
+            triggerObj.GetComponent<Block>().stopMove = true;
 
             audioSource.clip = clips[0];
             audioSource.Play();
