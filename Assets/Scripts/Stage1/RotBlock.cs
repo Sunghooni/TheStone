@@ -6,18 +6,22 @@ using UnityEngine.PlayerLoop;
 public class RotBlock : MonoBehaviour
 {
     Vector3 rotPoint;
+    public bool startRot = false;
 
     void Awake()
     {
         var pos = this.transform.position;
         rotPoint = new Vector3(pos.x - 1.5f, pos.y - 1.5f, pos.z);
-        StartCoroutine(RotMovement());
+        //StartCoroutine(RotMovement());
         
     }
 
-    void Update()
+    private void Update()
     {
-        Debug.DrawRay(rotPoint, Vector3.forward * 1, Color.red, 2);
+        if(startRot && this.transform.eulerAngles.z == 0)
+        {
+            StartCoroutine(RotMovement());
+        }
     }
 
     IEnumerator RotMovement()
