@@ -22,17 +22,16 @@ public class WizardCtrl : MonoBehaviour
     private void FixedUpdate()
     {
         MoveCtrl();
+        AnimCtrl();
     }
 
     private void MoveCtrl()
     { 
-        vert = Input.GetAxis("Vertical") * moveSpeed;
+        vert = Input.GetAxisRaw("Vertical") * moveSpeed;
         transform.Translate(Vector3.forward * vert * Time.deltaTime);
 
-        horz = Input.GetAxis("Horizontal") * rotSpeed;
+        horz = Input.GetAxisRaw("Horizontal") * rotSpeed;
         transform.Rotate(Vector3.up * horz);
-
-        AnimCtrl();
     }
 
     private void AnimCtrl()
