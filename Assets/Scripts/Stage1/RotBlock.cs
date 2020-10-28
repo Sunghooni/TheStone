@@ -31,7 +31,7 @@ public class RotBlock : MonoBehaviour
                 gameObject.transform.eulerAngles = new Vector3(0, 0, 90);
                 break;
             }
-            transform.RotateAround(rotPoint, Vector3.forward, 10 * Time.deltaTime);
+            transform.RotateAround(rotPoint, Vector3.forward, 15 * Time.deltaTime);
             yield return new FixedUpdate();
         }
     }
