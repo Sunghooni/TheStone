@@ -26,9 +26,12 @@ public class RotBlock : MonoBehaviour
     {
         while(true)
         {
-            if (this.transform.eulerAngles.z > 90)
+            if (this.transform.eulerAngles.z > 89.9f)
+            {
+                gameObject.transform.eulerAngles = new Vector3(0, 0, 90);
                 break;
-            transform.RotateAround(rotPoint, Vector3.forward, 5 * Time.deltaTime);
+            }
+            transform.RotateAround(rotPoint, Vector3.forward, 10 * Time.deltaTime);
             yield return new FixedUpdate();
         }
     }
