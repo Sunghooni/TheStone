@@ -30,7 +30,7 @@ public class WizardCtrl : MonoBehaviour
         vert = Input.GetAxisRaw("Vertical") * moveSpeed;
         transform.Translate(Vector3.forward * vert * Time.deltaTime);
 
-        horz = Input.GetAxisRaw("Horizontal") * rotSpeed;
+        horz = Input.GetAxis("Horizontal") * rotSpeed;
         transform.Rotate(Vector3.up * horz);
     }
 

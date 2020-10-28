@@ -11,9 +11,7 @@ public class RotBlock : MonoBehaviour
     void Awake()
     {
         var pos = this.transform.position;
-        rotPoint = new Vector3(pos.x - 1.5f, pos.y - 1.5f, pos.z);
-        //StartCoroutine(RotMovement());
-        
+        rotPoint = new Vector3(pos.x - 1.5f, pos.y - 1.5f, pos.z);        
     }
 
     private void Update()
@@ -30,7 +28,7 @@ public class RotBlock : MonoBehaviour
         {
             if (this.transform.eulerAngles.z > 90)
                 break;
-            transform.RotateAround(rotPoint, Vector3.forward, Time.deltaTime);
+            transform.RotateAround(rotPoint, Vector3.forward, 5 * Time.deltaTime);
             yield return new FixedUpdate();
         }
     }
