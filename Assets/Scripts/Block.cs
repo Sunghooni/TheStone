@@ -26,7 +26,6 @@ public class Block : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        //Debug.DrawRay(gameObject.transform.position, -transform.right * 2, Color.red, 1);
     }
 
     public void Move()
@@ -64,6 +63,8 @@ public class Block : MonoBehaviour
             {
                 if (stopMove)
                 {
+                    audioSource.clip = clips[0];
+                    audioSource.Play();
                     gameObject.tag = "Fixed";
                     break;
                 }
@@ -96,11 +97,11 @@ public class Block : MonoBehaviour
 
         if (triggerObj.tag == "Moving" || triggerObj.tag == "Fixed" || triggerObj.tag == "Staying")
         {
-            stopMove = true;
             if(triggerObj.GetComponent<Block>())
+            {
                 triggerObj.GetComponent<Block>().stopMove = true;
-            audioSource.clip = clips[0];
-            audioSource.Play();
+            }
+            stopMove = true;
         }
     }
 }
