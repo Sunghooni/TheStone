@@ -24,6 +24,7 @@ public class RotBlock : MonoBehaviour
 
     IEnumerator RotMovement()
     {
+        float RotSpeed = 0;
         while(true)
         {
             if (this.transform.eulerAngles.z > 89.9f)
@@ -31,8 +32,9 @@ public class RotBlock : MonoBehaviour
                 gameObject.transform.eulerAngles = new Vector3(0, 0, 90);
                 break;
             }
-            transform.RotateAround(rotPoint, Vector3.forward, 15 * Time.deltaTime);
+            transform.RotateAround(rotPoint, Vector3.forward, RotSpeed * Time.deltaTime);
             yield return new FixedUpdate();
+            RotSpeed += Time.deltaTime * 10;
         }
     }
 }

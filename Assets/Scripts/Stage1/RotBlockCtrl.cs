@@ -31,7 +31,7 @@ public class RotBlockCtrl : MonoBehaviour
     {
         for(int i = 0; i < TriggerBlocks.Length; i++)
         {
-            Invoke("TriggerOn", i);
+            Invoke("TriggerOn", i/2);
         }
     }
 
