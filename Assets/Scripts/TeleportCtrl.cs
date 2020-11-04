@@ -9,7 +9,7 @@ public class TeleportCtrl : MonoBehaviour
 
     private WizardCtrl wizardCtrl;
     public GameObject targetBlock;
-    private bool teleportable = true;
+    public bool teleportable = true;
 
     private void Awake()
     {

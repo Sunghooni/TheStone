@@ -33,8 +33,8 @@ public class RotBlock : MonoBehaviour
                 break;
             }
             transform.RotateAround(rotPoint, Vector3.forward, RotSpeed * Time.deltaTime);
-            yield return new FixedUpdate();
             RotSpeed += Time.deltaTime * 10;
+            yield return new FixedUpdate();
         }
     }
 }
