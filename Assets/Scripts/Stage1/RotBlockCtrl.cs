@@ -29,7 +29,30 @@ public class RotBlockCtrl : MonoBehaviour
         {
             if(!Circles[0].activeSelf)
                 Circles[0].SetActive(true);
-            RotStart();
+        }
+    }
+
+    void CircleCtrl()
+    {
+        if (Circles[0].GetComponent<CheckClear>().isClear)
+        {
+            if(triggerCnt == 5)
+            {
+                RotStart();
+                Player.GetComponent<WizardCtrl>().moveSpeed = 0;
+            }
+        }
+        if(RotBlocks[0].transform.eulerAngles.z > 89)
+        {
+            Circles[0].GetComponent<CheckClear>().stopPtcl = true;
+            Player.GetComponent<WizardCtrl>().moveSpeed = 5;
+            Circles[1].SetActive(true);
+        }
+        if (Circles[1].activeSelf && Circles[1].GetComponent<CheckClear>().isClear)
+        {
+            Player.GetComponent<WizardCtrl>().moveSpeed = 0;
+            Player.GetComponent<WizardCtrl>().rotSpeed = 0;
+            Circles[1].GetComponent<CheckClear>().stopPtcl = true;
         }
     }
 
@@ -44,26 +67,5 @@ public class RotBlockCtrl : MonoBehaviour
     void RotBlock()
     {
         RotBlocks[triggerCnt--].GetComponent<RotBlock>().startRot = true;
-
-        if (triggerCnt == 0)
-            Circles[1].SetActive(true);
-    }
-
-    void CircleCtrl()
-    {
-        if(Circles[0].activeSelf && Circles[0].GetComponent<CheckClear>().isClear)
-        {
-            Player.GetComponent<WizardCtrl>().moveSpeed = 0;
-            Circles[0].GetComponent<CheckClear>().stopPtcl = true;
-        }
-
-        if (Circles[1].activeSelf && Circles[1].GetComponent<CheckClear>().isClear)
-        {
-            Player.GetComponent<WizardCtrl>().moveSpeed = 0;
-            Player.GetComponent<WizardCtrl>().rotSpeed = 0;
-            Circles[1].GetComponent<CheckClear>().stopPtcl = true;
-        }
-        else if (Circles[1].activeSelf)
-            Player.GetComponent<WizardCtrl>().moveSpeed = 5;
     }
 }
