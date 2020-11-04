@@ -38775,7 +38775,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 708089272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a42886edaad404bb21b77bcf0ac57a, type: 3}
+  m_Script: {fileID: 11500000, guid: 70f544f847daac943ab19998d4417f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &710603690
@@ -93862,6 +93862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TeleportPtc: {fileID: 4882360115275360470}
   targetBlock: {fileID: 0}
+  teleportable: 1
 --- !u!114 &4922031261439818794
 MonoBehaviour:
   m_ObjectHideFlags: 0

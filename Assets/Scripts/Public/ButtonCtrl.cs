@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainButton : MonoBehaviour
+public class ButtonCtrl : MonoBehaviour
 {
     public void PlayBtnOnclick()
     {
         Debug.Log("PlayBtn");
         LoadingScene.LoadScene("Tutorial");
-        //SceneManager.LoadScene("Tutorial");
     }
 
     public void StageBtnOnclick()
@@ -20,5 +19,11 @@ public class MainButton : MonoBehaviour
     public void OptionBtnOnclick()
     {
         Debug.Log("OptionBtn");
+    }
+
+    public void HomeBtnOnclick()
+    {
+        Debug.Log("HomeBtn");
+        LoadingScene.LoadScene("Main");
     }
 }
