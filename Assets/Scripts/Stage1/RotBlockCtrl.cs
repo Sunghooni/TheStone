@@ -40,6 +40,7 @@ public class RotBlockCtrl : MonoBehaviour
             {
                 RotStart();
                 Player.GetComponent<WizardCtrl>().moveSpeed = 0;
+                Player.GetComponent<WizardCtrl>().rotSpeed = 0;
             }
         }
         if(RotBlocks[0].transform.eulerAngles.z > 89)

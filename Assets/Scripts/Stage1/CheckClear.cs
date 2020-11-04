@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CheckClear : MonoBehaviour
@@ -37,6 +38,8 @@ public class CheckClear : MonoBehaviour
     {
         if(other.transform.tag.Equals("Player"))
         {
+            other.transform.eulerAngles = new Vector3(0, 180, 0);
+            other.transform.position = gameObject.transform.position;
             isClear = true;
         }
     }
