@@ -41,6 +41,8 @@ public class CheckClear : MonoBehaviour
             other.transform.eulerAngles = new Vector3(0, 180, 0);
             other.transform.position = gameObject.transform.position;
             isClear = true;
+
+            gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

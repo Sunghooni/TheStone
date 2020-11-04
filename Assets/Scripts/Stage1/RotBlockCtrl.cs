@@ -34,25 +34,26 @@ public class RotBlockCtrl : MonoBehaviour
 
     void CircleCtrl()
     {
+        var WizardCtrl = Player.GetComponent<WizardCtrl>();
         if (Circles[0].GetComponent<CheckClear>().isClear)
         {
             if(triggerCnt == 5)
             {
                 RotStart();
-                Player.GetComponent<WizardCtrl>().moveSpeed = 0;
-                Player.GetComponent<WizardCtrl>().rotSpeed = 0;
+                WizardCtrl.moveSpeed = 0;
+                WizardCtrl.rotSpeed = 0;
             }
         }
         if(RotBlocks[0].transform.eulerAngles.z > 89)
         {
             Circles[0].GetComponent<CheckClear>().stopPtcl = true;
-            Player.GetComponent<WizardCtrl>().moveSpeed = 5;
             Circles[1].SetActive(true);
+            WizardCtrl.moveSpeed = 5;
         }
         if (Circles[1].activeSelf && Circles[1].GetComponent<CheckClear>().isClear)
         {
-            Player.GetComponent<WizardCtrl>().moveSpeed = 0;
-            Player.GetComponent<WizardCtrl>().rotSpeed = 0;
+            WizardCtrl.moveSpeed = 0;
+            WizardCtrl.rotSpeed = 0;
             Circles[1].GetComponent<CheckClear>().stopPtcl = true;
         }
     }
