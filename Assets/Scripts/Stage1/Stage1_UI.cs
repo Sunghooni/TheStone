@@ -7,11 +7,22 @@ public class Stage1_UI : MonoBehaviour
 {
     public GameObject ClearCircle;
     public GameObject ClearUI;
+    public GameObject Part1_Circle;
     public Text sideText;
 
     private void Update()
     {
         ShowClearUI();
+        ClearPart1();
+    }
+
+    private void ClearPart1()
+    {
+        if(Part1_Circle.GetComponent<CheckClear>().isClear)
+        {
+            Part1_Circle.GetComponent<CheckClear>().stopPtcl = true;
+            sideText.text = "Press wall to collapse";
+        }
     }
 
     private void ShowClearUI()
