@@ -21,15 +21,15 @@ public class MouseCtrl : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 35))
         {
-            if (Physics.Raycast(ray, out hit, 35))
+            GameObject clickedObj = hit.transform.gameObject;
+
+            if (clickedObj.transform.parent)
+                clickedObj = clickedObj.transform.parent.gameObject;
+
+            if(clickedObj.tag.Equals("Block"))
             {
-                GameObject clickedObj = hit.transform.gameObject;
-
-                if (clickedObj.transform.parent)
-                    clickedObj = clickedObj.transform.parent.gameObject;
-
                 var objState = clickedObj.GetComponent<Block>().blockState;
 
                 if (objState == Block.State.Ready)

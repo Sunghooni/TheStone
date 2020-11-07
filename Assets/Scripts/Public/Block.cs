@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
-    public enum State { Ready, Moving, Staying, Backing, Fixed }
+    public enum State { Unmovable, Ready, Moving, Staying, Backing, Fixed }
     public State blockState = State.Ready;
 
     public AudioSource audioSource;

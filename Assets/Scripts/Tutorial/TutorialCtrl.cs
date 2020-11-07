@@ -8,6 +8,7 @@ public class TutorialCtrl : MonoBehaviour
     TutorialScene tutorialScene;
 
     public GameObject[] blocks;
+    public GameObject[] blockStates;
     public GameObject backBlock;
     public GameObject player;
 
@@ -16,9 +17,10 @@ public class TutorialCtrl : MonoBehaviour
         wizardCtrl = player.GetComponent<WizardCtrl>();
         tutorialScene = gameObject.GetComponent<TutorialScene>();
         wizardCtrl.moveSpeed = 0;
+
         foreach(GameObject obj in blocks)
         {
-            obj.tag = "Untagged";
+            obj.GetComponent<Block>().blockState = Block.State.Unmovable;
         }
     }
 
@@ -46,14 +48,15 @@ public class TutorialCtrl : MonoBehaviour
 
     public void Part3()
     {
+        var blockState = blocks[0].GetComponent<Block>().blockState;
         wizardCtrl.rotSpeed = 0;
         wizardCtrl.moveSpeed = 0;
 
-        if (blocks[0].tag.Equals("Untagged"))
+        if (blockState == Block.State.Unmovable)
         {
-            blocks[0].tag = "Ready";
+            blocks[0].GetComponent<Block>().blockState = Block.State.Ready;
         }
-        else if (blocks[0].tag.Equals("Staying"))
+        else if (blockState == Block.State.Staying)
         {
             Debug.Log("Part3 Clear");
             blocks[0].GetComponent<Block>().freeze = true;
@@ -70,7 +73,7 @@ public class TutorialCtrl : MonoBehaviour
             wizardCtrl.moveSpeed = 5;
             wizardCtrl.rotSpeed = 0;
         }
-        else if(!blocks[0].tag.Equals("Moving"))
+        else if(!(blocks[0].GetComponent<Block>().blockState == Block.State.Moving))
         {
             wizardCtrl.moveSpeed = 0;
             wizardCtrl.rotSpeed = 2;
@@ -91,21 +94,24 @@ public class TutorialCtrl : MonoBehaviour
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
 
-        if(blocks[1].tag.Equals("Untagged"))
+        var block1_State = blocks[1].GetComponent<Block>().blockState;
+        var block2_State = blocks[2].GetComponent<Block>().blockState;
+
+        if (block1_State == Block.State.Unmovable)
         {
-            blocks[1].tag = "Ready";
-            blocks[2].tag = "Ready";
+            blocks[1].GetComponent<Block>().blockState = Block.State.Ready;
+            blocks[2].GetComponent<Block>().blockState = Block.State.Ready;
             blocks[1].GetComponent<Block>().freeze = true;
             blocks[2].GetComponent<Block>().freeze = true;
         }
-        else if(blocks[1].tag.Equals("Moving") && blocks[2].tag.Equals("Moving"))
+        else if(block1_State == Block.State.Moving && block2_State == Block.State.Moving)
         {
             blocks[1].GetComponent<Block>().freeze = false;
             blocks[2].GetComponent<Block>().freeze = false;
         }
-        else if(blocks[1].tag.Equals("Fixed"))
+        else if(block1_State == Block.State.Fixed)
         {
-            blocks[2].tag = "Untagged";
+            blocks[2].GetComponent<Block>().blockState = Block.State.Unmovable;
             if (player.transform.position.z == 0)
             {
                 Debug.Log("Part5 Clear");
@@ -116,18 +122,20 @@ public class TutorialCtrl : MonoBehaviour
 
     public void Part6()
     {
+        var block3_State = blocks[3].GetComponent<Block>().blockState;
+
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
         backBlock.SetActive(true);
 
-        if(blocks[3].tag.Equals("Untagged"))
+        if(block3_State == Block.State.Unmovable)
         {
-            blocks[3].tag = "Ready";
+            blocks[3].GetComponent<Block>().blockState = Block.State.Ready;
         }
-        else if(blocks[3].tag.Equals("Fixed"))
+        else if(block3_State == Block.State.Fixed)
         {
             Debug.Log("Part6 Clear");
-            blocks[3].tag = "Untagged";
+            blocks[3].GetComponent<Block>().blockState = Block.State.Unmovable;
             tutorialScene.partCnt = 7;
         }
     }

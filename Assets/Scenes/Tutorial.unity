@@ -73102,7 +73102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1999501387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73120,6 +73120,7 @@ MonoBehaviour:
   - {fileID: 1208473756}
   - {fileID: 1757843479}
   - {fileID: 922454201}
+  blockStates: []
   backBlock: {fileID: 66997168}
   player: {fileID: 4922031261439818788}
 --- !u!4 &1999501388

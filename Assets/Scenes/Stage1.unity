@@ -1442,6 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 41605803}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -18381,6 +18382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 408514671}
   clips: []
   MoveDistance: 6
@@ -19326,7 +19328,7 @@ GameObject:
   - component: {fileID: 436200398}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19421,6 +19423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 436200398}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -38187,6 +38190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 593661417}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -44854,7 +44858,7 @@ GameObject:
   - component: {fileID: 857949562}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45076,6 +45080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 857949562}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -72226,6 +72231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1269300031}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -75451,7 +75457,7 @@ GameObject:
   - component: {fileID: 1371337447}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75671,6 +75677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1371337447}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -96248,6 +96255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1822273523}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -114566,6 +114574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1956179608}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -119011,7 +119020,7 @@ GameObject:
   - component: {fileID: 2099281118}
   m_Layer: 0
   m_Name: MoveBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119204,6 +119213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 2099281118}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -119630,6 +119640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 2106048072}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
