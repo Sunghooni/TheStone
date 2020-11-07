@@ -4,13 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fixed
-  - Ready
-  - Moving
-  - Staying
-  - Backing
   - TriggerOff
   - TriggerOn
+  - Block
   layers:
   - Default
   - TransparentFX

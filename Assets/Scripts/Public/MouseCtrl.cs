@@ -30,11 +30,13 @@ public class MouseCtrl : MonoBehaviour
                 if (clickedObj.transform.parent)
                     clickedObj = clickedObj.transform.parent.gameObject;
 
-                if (clickedObj.transform.tag.Equals("Ready"))
+                var objState = clickedObj.GetComponent<Block>().blockState;
+
+                if (objState == Block.State.Ready)
                 {
-                    clickedObj.transform.tag = "Moving";
+                    clickedObj.GetComponent<Block>().blockState = Block.State.Moving;
                 }
-                else if (clickedObj.transform.tag.Equals("Fixed"))
+                else if (objState == Block.State.Fixed)
                 {
                     teleport.teleportPlay(hit.transform.gameObject);
                 }

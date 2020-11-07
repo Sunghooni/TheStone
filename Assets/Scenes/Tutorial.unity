@@ -44885,7 +44885,7 @@ GameObject:
   - component: {fileID: 922454209}
   m_Layer: 0
   m_Name: FrontBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44918,6 +44918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 922454209}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -46529,7 +46530,7 @@ GameObject:
   - component: {fileID: 1109774524}
   m_Layer: 0
   m_Name: BackwardBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46622,6 +46623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1109774524}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -52473,7 +52475,7 @@ GameObject:
   - component: {fileID: 1208473764}
   m_Layer: 0
   m_Name: RightBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52568,6 +52570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1208473764}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -61468,7 +61471,7 @@ GameObject:
   - component: {fileID: 1757843487}
   m_Layer: 0
   m_Name: LeftBlock
-  m_TagString: Ready
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61563,6 +61566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f53f1f503e944bba902c24e065f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockState: 0
   audioSource: {fileID: 1757843487}
   clips:
   - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
@@ -73098,7 +73102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1999501387
 MonoBehaviour:
   m_ObjectHideFlags: 0

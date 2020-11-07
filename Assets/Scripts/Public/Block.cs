@@ -5,9 +5,12 @@ using UnityEngine.UIElements;
 
 public class Block : MonoBehaviour
 {
+    public enum State { Ready, Moving, Staying, Backing, Fixed }
+    public State blockState = State.Ready;
+
     public AudioSource audioSource;
     public AudioClip[] clips;
-    public float MoveDistance = 0;
+    public float MoveDistance;
     public float MoveSpeed;
     public float StayTime;
     public bool freeze = false;
@@ -30,7 +33,7 @@ public class Block : MonoBehaviour
 
     public void Move()
     {
-        if (this.transform.tag.Equals("Moving") && canGo)
+        if (blockState == State.Moving && canGo)
         {
             StartCoroutine(Moving());
             canGo = false;
@@ -50,36 +53,36 @@ public class Block : MonoBehaviour
             else
                 audioSource.Pause();
 
-            if(this.transform.tag.Equals("Moving"))
+            if(blockState == State.Moving)
             {
                 this.transform.position = Vector3.Lerp(originPos, toPos, timer / MoveSpeed);
                 if (timer > MoveSpeed)
                 {
-                    this.transform.tag = "Staying";
+                    blockState = State.Staying;
                     timer = 0;
                 }
             }
-            else if(this.transform.tag.Equals("Staying"))
+            else if(blockState == State.Staying)
             {
                 if (stopMove)
                 {
                     audioSource.clip = clips[0];
                     audioSource.Play();
-                    gameObject.tag = "Fixed";
+                    blockState = State.Fixed;
                     break;
                 }
                 else if (timer > StayTime)
                 {
-                    this.transform.tag = "Backing";
+                    blockState = State.Backing;
                     timer = 0;
                 }
             }
-            else if(this.transform.tag.Equals("Backing"))
+            else if(blockState == State.Backing)
             {
                 this.transform.position = Vector3.Lerp(toPos, originPos, timer / MoveSpeed);
                 if(timer > MoveSpeed)
                 {
-                    this.transform.tag = "Ready";
+                    blockState = State.Ready;
                     canGo = true;
                     break;
                 }
@@ -94,8 +97,12 @@ public class Block : MonoBehaviour
 
         if (other.transform.parent)
             triggerObj = other.transform.parent.gameObject;
+        if (!triggerObj.transform.tag.Equals("Block"))
+            return;
 
-        if (triggerObj.tag == "Moving" || triggerObj.tag == "Fixed" || triggerObj.tag == "Staying")
+        var triggerState = triggerObj.GetComponent<Block>().blockState;
+
+        if (triggerState == State.Moving || triggerState == State.Fixed || triggerState == State.Staying)
         {
             if(triggerObj.GetComponent<Block>())
             {
