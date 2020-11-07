@@ -23,13 +23,13 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_3()
     {
-        if (blocks[0].tag.Equals("Ready"))
+        if (blocks[0].GetComponent<Block>().blockState == Block.State.Ready)
             arrows[0].SetActive(true);
         
         texts[0].text = "click this block to act";
         texts[1].text = "";
 
-        if(blocks[0].transform.tag.Equals("Moving"))
+        if(blocks[0].GetComponent<Block>().blockState == Block.State.Moving)
         {
             arrows[0].SetActive(false);
             Debug.Log("SetFalse");
@@ -41,7 +41,7 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_5()
     {
-        if(blocks[1].tag.Equals("Ready"))
+        if(blocks[1].GetComponent<Block>().blockState == Block.State.Ready)
         {
             arrows[1].SetActive(true);
             arrows[2].SetActive(true);
@@ -49,12 +49,13 @@ public class TutorialUI : MonoBehaviour
         texts[0].text = "click both blocks";
         texts[1].text = "collide block is fixed";
 
-        if(blocks[1].tag.Equals("Moving") && blocks[2].tag.Equals("Moving"))
+        if(blocks[1].GetComponent<Block>().blockState == Block.State.Moving &&
+            blocks[2].GetComponent<Block>().blockState == Block.State.Moving)
         {
             arrows[1].SetActive(false);
             arrows[2].SetActive(false);
         }
-        else if(blocks[1].tag.Equals("Fixed"))
+        else if(blocks[1].GetComponent<Block>().blockState == Block.State.Fixed)
         {
             arrows[3].SetActive(true);
             texts[0].text = "Click Fixed Block";

@@ -7,6 +7,7 @@ public class RotBlock : MonoBehaviour
 {
     Vector3 rotPoint;
     public bool startRot = false;
+    public bool isTriggerOn = false;
 
     void Awake()
     {
@@ -36,5 +37,15 @@ public class RotBlock : MonoBehaviour
             RotSpeed += Time.deltaTime * 10;
             yield return new FixedUpdate();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        isTriggerOn = true;
+        
+        Debug.Log("Hitted");
+        other.gameObject.GetComponent<Block>().blockState = Block.State.Staying;
+        other.gameObject.GetComponent<Block>().stopMove = true;
+        
     }
 }

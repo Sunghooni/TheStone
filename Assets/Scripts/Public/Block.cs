@@ -13,12 +13,13 @@ public class Block : MonoBehaviour
     public float MoveDistance;
     public float MoveSpeed;
     public float StayTime;
+
     public bool freeze = false;
+    public bool stopMove = false;
 
     private Vector3 originPos = Vector3.zero;
     private Vector3 toPos = Vector3.zero;
     private bool canGo = true;
-    private bool stopMove = false;
 
     void Awake()
     {

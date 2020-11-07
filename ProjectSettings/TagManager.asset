@@ -7,6 +7,7 @@ TagManager:
   - TriggerOff
   - TriggerOn
   - Block
+  - RotBlock
   layers:
   - Default
   - TransparentFX

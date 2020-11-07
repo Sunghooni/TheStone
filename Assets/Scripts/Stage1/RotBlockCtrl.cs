@@ -21,9 +21,11 @@ public class RotBlockCtrl : MonoBehaviour
     void CheckTrigger()
     {
         int cnt = 0;
+
         for(int i = 0; i < TriggerBlocks.Length; i++)
         {
-            cnt = (TriggerBlocks[i].tag.Equals("Fixed") ? cnt + 1 : cnt);
+            var triggerCheck = RotBlocks[i].GetComponent<RotBlock>().isTriggerOn;
+            cnt = (triggerCheck ? cnt + 1 : cnt);
         }
         if(cnt == TriggerBlocks.Length && triggerCnt == 5)
         {
