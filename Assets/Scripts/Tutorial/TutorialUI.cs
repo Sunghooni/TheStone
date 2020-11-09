@@ -6,11 +6,19 @@ using UnityEngine.UI;
 
 public class TutorialUI : MonoBehaviour
 {
-    public GameObject[] blocks;
-    public Text[] texts;
-    public GameObject[] arrows;
+    BlockManager blockManager;
+    public GameObject blockManagerObj;
     public ParticleSystem teleportEft;
     public GameObject homeBtn;
+
+    public Text[] texts;
+    public GameObject[] arrows;
+
+    private void Awake()
+    {
+        blockManager = blockManagerObj.GetComponent<BlockManager>();
+    }
+
     public void UI_1()
     {
         texts[0].text = "press a,d to rotate";
@@ -23,13 +31,13 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_3()
     {
-        if (blocks[0].GetComponent<Block>().blockState == Block.State.Ready)
+        if (blockManager.GetBlockState(0).Equals("Ready"))
             arrows[0].SetActive(true);
         
         texts[0].text = "click this block to act";
         texts[1].text = "";
 
-        if(blocks[0].GetComponent<Block>().blockState == Block.State.Moving)
+        if(blockManager.GetBlockState(0).Equals("Moving"))
         {
             arrows[0].SetActive(false);
             Debug.Log("SetFalse");
@@ -41,7 +49,7 @@ public class TutorialUI : MonoBehaviour
     }
     public void UI_5()
     {
-        if(blocks[1].GetComponent<Block>().blockState == Block.State.Ready)
+        if(blockManager.GetBlockState(1).Equals("Ready"))
         {
             arrows[1].SetActive(true);
             arrows[2].SetActive(true);
@@ -49,13 +57,13 @@ public class TutorialUI : MonoBehaviour
         texts[0].text = "click both blocks";
         texts[1].text = "collide block is fixed";
 
-        if(blocks[1].GetComponent<Block>().blockState == Block.State.Moving &&
-            blocks[2].GetComponent<Block>().blockState == Block.State.Moving)
+        if(blockManager.GetBlockState(1).Equals("Moving") &&
+            blockManager.GetBlockState(2).Equals("Moving"))
         {
             arrows[1].SetActive(false);
             arrows[2].SetActive(false);
         }
-        else if(blocks[1].GetComponent<Block>().blockState == Block.State.Fixed)
+        else if(blockManager.GetBlockState(1).Equals("Fixed"))
         {
             arrows[3].SetActive(true);
             texts[0].text = "Click Fixed Block";
