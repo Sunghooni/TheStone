@@ -29,6 +29,7 @@ public class Stage1_UI : MonoBehaviour
     {
         if(!ClearUI.activeSelf && ClearCircle.GetComponent<CheckClear>().isClear)
         {
+            sideText.enabled = false;
             ClearUI.SetActive(true);
         }
     }

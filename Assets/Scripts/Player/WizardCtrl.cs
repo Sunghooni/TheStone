@@ -41,4 +41,13 @@ public class WizardCtrl : MonoBehaviour
         else
             anim.SetBool("run", false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag.Equals("DieCheck"))
+        {
+            gameObject.transform.eulerAngles = Vector3.zero;
+            gameObject.transform.position = Vector3.zero + Vector3.up * 1;
+        }
+    }
 }
