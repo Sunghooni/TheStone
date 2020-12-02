@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class CameraCtrl : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
 
+    Vector3 dir;
+    private float dist = 0f;
+    private float width = -4f;
+    private float height = 3.5f;
+    private float height_fix = 1f;
+
+    private void Awake()
+    {
+        height -= height_fix;
+        dist = Mathf.Sqrt(width * width + height * height);
+        dir = new Vector3(0, height, width).normalized;
+    }
+    
     private void FixedUpdate()
     {
-        var cameraPos = this.transform.position;
-        var playerPos = player.transform.position;
-        Vector3 upDownRay = new Vector3(playerPos.x, playerPos.y + 1, playerPos.z);
-
-        if (Physics.Raycast(upDownRay, Vector3.up, 2.5f))
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 2f, cameraPos.z), Time.deltaTime);
-        else
-            this.transform.position = Vector3.Lerp(this.transform.position, new Vector3(cameraPos.x, playerPos.y + 3.5f, cameraPos.z), Time.deltaTime);
+        Vector3 ray_origin = Player.transform.position + Vector3.up * height_fix;
+        Vector3 ray_target = Vector3.up * height + Player.transform.forward * width;
+        RaycastHit hitInfo;
         
-        //Debug.DrawRay(upDownRay, Vector3.up * 2.5f, Color.red, 0, true);
-        //Debug.DrawRay(this.transform.position, transform.right * 3.5f, Color.red, 0, true);
+        if (Physics.Raycast(ray_origin, ray_target, out hitInfo, dist))
+        {
+            gameObject.transform.position = hitInfo.point;
+        }
+        else
+        {
+            Vector3 cameranPos = ray_origin + ray_target;
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, cameranPos, Time.deltaTime * 2f);
+        }
     }
 }

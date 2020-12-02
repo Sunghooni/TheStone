@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MouseCtrl : MonoBehaviour
 {
+    //BlockManager blockManager;
     private TeleportCtrl teleport;
 
     private void Awake()
     {
+        //blockManager = GameObject.Find("BlockManager").GetComponent<BlockManager>();
         teleport = gameObject.GetComponent<TeleportCtrl>();
     }
 
