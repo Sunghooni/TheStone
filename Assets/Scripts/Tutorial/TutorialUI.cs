@@ -40,7 +40,6 @@ public class TutorialUI : MonoBehaviour
         if(blockManager.GetBlockState(0).Equals("Moving"))
         {
             arrows[0].SetActive(false);
-            Debug.Log("SetFalse");
         }
     }
     public void UI_4()
