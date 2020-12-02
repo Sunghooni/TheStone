@@ -25,8 +25,18 @@ public class CameraCtrl : MonoBehaviour
         Vector3 ray_target = Vector3.up * height + Player.transform.forward * width;
         RaycastHit hitInfo;
         
+        if(Physics.Raycast(ray_origin, Vector3.up, 2f))
+        {
+            ray_target = ray_target + Vector3.up * -1.5f;
+        }
+
         if (Physics.Raycast(ray_origin, ray_target, out hitInfo, dist))
         {
+            Vector3 cameraPos = hitInfo.point;
+
+            if (cameraPos.y > ray_target.y)
+                cameraPos.y = ray_target.y;
+
             gameObject.transform.position = hitInfo.point;
         }
         else
