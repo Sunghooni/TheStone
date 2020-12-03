@@ -1782,7 +1782,7 @@ Transform:
   - {fileID: 398790437}
   - {fileID: 47937667}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170376071
 GameObject:
@@ -11883,7 +11883,7 @@ Transform:
   - {fileID: 206890389}
   - {fileID: 1862373203}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352888236
 GameObject:
@@ -12634,7 +12634,7 @@ RectTransform:
   - {fileID: 375607795}
   - {fileID: 708089273}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -38778,6 +38778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f544f847daac943ab19998d4417f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainUI: {fileID: 0}
+  StageSelectUI: {fileID: 0}
 --- !u!1 &710603690
 GameObject:
   m_ObjectHideFlags: 0
@@ -38842,7 +38844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734716344
 GameObject:
@@ -44967,9 +44969,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockState: 0
-  audioSource: {fileID: 922454209}
-  clips:
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -45064,7 +45063,7 @@ Transform:
   - {fileID: 1130857030}
   - {fileID: 1892318461}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!82 &922454209
 AudioSource:
@@ -45078,7 +45077,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -46598,7 +46597,7 @@ Transform:
   - {fileID: 481599770}
   - {fileID: 1759412106}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!65 &1109774518
 BoxCollider:
@@ -46673,9 +46672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockState: 0
-  audioSource: {fileID: 1109774524}
-  clips:
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1
@@ -46722,7 +46718,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -52546,7 +52542,7 @@ Transform:
   - {fileID: 1079432867}
   - {fileID: 1061581589}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1208473758
 BoxCollider:
@@ -52621,9 +52617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockState: 0
-  audioSource: {fileID: 1208473764}
-  clips:
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 9
   MoveSpeed: 2
   StayTime: 1
@@ -52670,7 +52663,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -61543,7 +61536,7 @@ Transform:
   - {fileID: 352888237}
   - {fileID: 1782757261}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &1757843481
 BoxCollider:
@@ -61618,9 +61611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockState: 0
-  audioSource: {fileID: 1757843487}
-  clips:
-  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
   MoveDistance: 6
   MoveSpeed: 2
   StayTime: 1
@@ -61667,7 +61657,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -72000,7 +71990,7 @@ Transform:
   - {fileID: 1486648044}
   - {fileID: 1589702895}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892318460
 GameObject:
@@ -73183,7 +73173,7 @@ Transform:
   m_Children:
   - {fileID: 66997169}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1999501389
 MonoBehaviour:
@@ -74062,6 +74052,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096407151}
   m_CullTransparentMesh: 0
+--- !u!1 &2110017729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2110017731}
+  - component: {fileID: 2110017730}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2110017730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110017729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adddeca0473c674982d9315946f709e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClips:
+  - {fileID: 8300000, guid: 09ceb3c8c2747b642a48b65e2d3904ed, type: 3}
+--- !u!4 &2110017731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110017729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110961784
 GameObject:
   m_ObjectHideFlags: 0
@@ -94016,7 +94051,7 @@ Transform:
   - {fileID: 4882360115294760342}
   - {fileID: 65404030}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5994023073062460968
 GameObject:

@@ -9,6 +9,7 @@ TagManager:
   - Block
   - RotBlock
   - DieCheck
+  - AudioManager
   layers:
   - Default
   - TransparentFX

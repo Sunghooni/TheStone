@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveData : MonoBehaviour
 {
     private static int Selected_Stage;
-    
+    private static float Volume;
     public static void Set_SelectedStage(int value)
     {
         Selected_Stage = value;
@@ -14,5 +14,15 @@ public class SaveData : MonoBehaviour
     public static int Get_SelectedStage()
     {
         return Selected_Stage;
+    }
+
+    public static void Set_Volume(float value)
+    {
+        Volume = value;
+    }
+
+    public static float Get_Volume()
+    {
+        return Volume;
     }
 }

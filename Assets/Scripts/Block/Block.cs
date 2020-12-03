@@ -8,8 +8,6 @@ public class Block : MonoBehaviour
     public enum State { Unmovable, Ready, Moving, Staying, Backing, Fixed }
     public State blockState = State.Ready;
 
-    public AudioSource audioSource;
-    public AudioClip[] clips;
     public float MoveDistance;
     public float MoveSpeed;
     public float StayTime;
@@ -21,10 +19,18 @@ public class Block : MonoBehaviour
     private Vector3 toPos = Vector3.zero;
     private bool canGo = true;
 
+    private AudioSource audioSource;
+    private GameObject AudioManager;
+    SoundManager soundManager;
+
     void Awake()
     {
         originPos = this.transform.position;
         toPos = originPos + transform.right * -MoveDistance;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        AudioManager = GameObject.FindWithTag("AudioManager");
+        soundManager = AudioManager.GetComponent<SoundManager>();
     }
 
     private void FixedUpdate()
@@ -32,7 +38,7 @@ public class Block : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         if (blockState == State.Moving && canGo)
         {
@@ -67,8 +73,7 @@ public class Block : MonoBehaviour
             {
                 if (stopMove)
                 {
-                    audioSource.clip = clips[0];
-                    audioSource.Play();
+                    PlaySound("RockCollide");
                     blockState = State.Fixed;
                     break;
                 }
@@ -90,6 +95,13 @@ public class Block : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    private void PlaySound(string name)
+    {
+        audioSource.clip = soundManager.GetAudioClip(name);
+        audioSource.volume = soundManager.GetAudioVolume();
+        audioSource.Play();
     }
 
     public void OnTriggerEnter(Collider other)
