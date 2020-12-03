@@ -6,14 +6,16 @@ using UnityEngine;
 public class TeleportCtrl : MonoBehaviour
 {
     public ParticleSystem TeleportPtc;
-
     private WizardCtrl wizardCtrl;
     public GameObject targetBlock;
     public bool teleportable = true;
 
+    private float teleportDelay;
+
     private void Awake()
     {
         wizardCtrl = gameObject.GetComponent<WizardCtrl>();
+        teleportDelay = TeleportPtc.startLifetime / 2;
     }
 
     public void teleportPlay(GameObject block)
@@ -52,11 +54,11 @@ public class TeleportCtrl : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 1.5f)
+            if (timer > teleportDelay)
             {
                 this.transform.position = new Vector3(toPos.x, toPos.y + 1.5f, toPos.z);
             }
-            if(timer > 3f)
+            if(timer > teleportDelay * 2)
             {
                 wizardCtrl.moveSpeed = 5;
                 wizardCtrl.rotSpeed = 2;
