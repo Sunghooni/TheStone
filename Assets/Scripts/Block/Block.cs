@@ -111,7 +111,13 @@ public class Block : MonoBehaviour
         if (other.transform.parent)
             triggerObj = other.transform.parent.gameObject;
         if (!triggerObj.transform.tag.Equals("Block"))
+        {
             return;
+        }
+        if (other.GetComponent<Rigidbody>() && other.GetComponent<Rigidbody>().useGravity)
+        {
+            return;
+        }
 
         var triggerState = triggerObj.GetComponent<Block>().blockState;
 
