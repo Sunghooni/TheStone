@@ -23,7 +23,7 @@ public class MouseCtrl : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 35))
+        if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 30))
         {
             GameObject clickedObj = hit.transform.gameObject;
 
