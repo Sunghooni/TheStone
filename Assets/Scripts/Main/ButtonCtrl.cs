@@ -66,4 +66,10 @@ public class ButtonCtrl : MonoBehaviour
     {
         Screen.SetResolution(Row, Col, Screen.fullScreenMode);
     }
+
+    public void ESCpressed()
+    {
+        Debug.Log("Hi");
+        LoadingScene.LoadScene("Main");
+    }
 }

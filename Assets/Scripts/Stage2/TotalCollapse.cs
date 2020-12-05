@@ -5,6 +5,7 @@ using UnityEngine;
 public class TotalCollapse : MonoBehaviour
 {
     public CollapseCheck[] checks;
+    public CollapseCtrl collapseCtrl;
     public Explode failExplode;
 
     private void OnTriggerEnter(Collider other)
@@ -22,6 +23,10 @@ public class TotalCollapse : MonoBehaviour
             {
                 Debug.Log("Failed to Block");
                 failExplode.trigger = true;
+            }
+            else
+            {
+                collapseCtrl.stopView = true;
             }
         }
     }

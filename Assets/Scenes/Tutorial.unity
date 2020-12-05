@@ -38780,6 +38780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainUI: {fileID: 0}
   StageSelectUI: {fileID: 0}
+  OptionUI: {fileID: 0}
+  scrollBar: {fileID: 0}
 --- !u!1 &710603690
 GameObject:
   m_ObjectHideFlags: 0

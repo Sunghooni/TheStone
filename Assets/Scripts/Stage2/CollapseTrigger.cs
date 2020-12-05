@@ -21,7 +21,7 @@ public class CollapseTrigger : MonoBehaviour
             if (gameObject.transform.eulerAngles.z >= 45)
                 yield return null;
             else
-                transform.Rotate(Vector3.forward * 15 * Time.deltaTime);
+                transform.Rotate(Vector3.forward * 20 * Time.deltaTime);
 
             yield return new WaitForFixedUpdate();
         }
