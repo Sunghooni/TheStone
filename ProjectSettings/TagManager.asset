@@ -10,6 +10,7 @@ TagManager:
   - RotBlock
   - DieCheck
   - AudioManager
+  - Collapse
   layers:
   - Default
   - TransparentFX

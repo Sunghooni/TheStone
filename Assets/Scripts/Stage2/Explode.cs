@@ -4,49 +4,79 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour
 {
-    public GameObject[] DropBlocks;
     public float range;
+    public float power, upPower;
+    public bool triggerSelect = false;
     public bool trigger = false;
 
     private bool showOnce = true;
 
     private void Update()
     {
-        if (trigger && showOnce)
+        if (!triggerSelect && trigger && showOnce)
         {
-            StartCoroutine("BlockDrop");
+            StartCoroutine("ExplodeNormalBlock");
+            showOnce = false;
+        }
+        if (triggerSelect && trigger && showOnce)
+        {
+            StartCoroutine("ExplodeMoveBlock");
             showOnce = false;
         }
     }
 
-    void ExplodeAll()
+    void ExplodeNormalBlock()
     {
-        //지정한 원점을 중심으로 10.0f 반경 내에 들어와 있는 Collider 객체 추출
         Collider[] colls = Physics.OverlapSphere(transform.position, range);
 
-        //추출한 Collider 객체에 폭발력 전달
         foreach (Collider coll in colls)
         {
             Rigidbody rbody = coll.GetComponent<Rigidbody>();
 
-            if (rbody != null && !coll.tag.Equals("Player"))
+            if (rbody != null && !coll.tag.Equals("Player") && !coll.tag.Equals("Block"))
             {
+                if (coll.transform.parent && coll.transform.parent.tag.Equals("Block"))
+                    continue;
                 rbody.isKinematic = false;
                 rbody.useGravity = true;
-                rbody.AddExplosionForce(230, transform.position, 100f);
+                rbody.AddExplosionForce(power, transform.position, upPower);
             }
         }
     }
 
-    IEnumerator BlockDrop()
+    void ExplodeMoveBlock()
     {
-        foreach(GameObject obj in DropBlocks)
+        Collider[] colls = Physics.OverlapSphere(transform.position, range);
+
+        foreach (Collider coll in colls)
         {
-            yield return new WaitForSeconds(1.5f);
-            obj.GetComponent<Rigidbody>().isKinematic = false;
-            obj.GetComponent<Rigidbody>().useGravity = true;
+            Rigidbody rbody = coll.GetComponent<Rigidbody>();
+
+            if (rbody != null && coll.tag.Equals("Block"))
+            {
+                rbody.isKinematic = false;
+                rbody.useGravity = true;
+                rbody.AddExplosionForce(power, transform.position, upPower);
+            }
+            for (int i = 0; i < coll.transform.childCount; i++)
+            {
+                GameObject obj = coll.transform.GetChild(i).gameObject;
+                
+                if (obj != null && obj.GetComponent<Rigidbody>())
+                {
+                    coll.transform.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
+                    coll.transform.GetChild(i).GetComponent<Rigidbody>().useGravity = true;
+                    coll.transform.GetChild(i).GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, upPower);
+                }
+            }
         }
-        ExplodeAll();
-        yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag.Equals("Player"))
+        {
+            trigger = true;
+        }
     }
 }

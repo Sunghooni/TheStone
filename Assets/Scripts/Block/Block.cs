@@ -101,6 +101,7 @@ public class Block : MonoBehaviour
     {
         audioSource.clip = soundManager.GetAudioClip(name);
         audioSource.volume = soundManager.GetAudioVolume();
+        Debug.Log(audioSource.volume);
         audioSource.Play();
     }
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
-    private static int Selected_Stage;
-    private static float Volume;
+    private static int Selected_Stage = 0;
+    private static float Volume = 1;
     public static void Set_SelectedStage(int value)
     {
         Selected_Stage = value;
