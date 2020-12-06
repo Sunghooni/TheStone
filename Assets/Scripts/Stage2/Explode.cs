@@ -10,17 +10,25 @@ public class Explode : MonoBehaviour
     public bool trigger = false;
 
     private bool showOnce = true;
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
+    }
 
     private void Update()
     {
         if (!triggerSelect && trigger && showOnce)
         {
             StartCoroutine("ExplodeNormalBlock");
+            soundManager.PlaySound(gameObject, "Collapse1");
             showOnce = false;
         }
         if (triggerSelect && trigger && showOnce)
         {
             StartCoroutine("ExplodeMoveBlock");
+            soundManager.PlaySound(gameObject, "Collapse1");
             showOnce = false;
         }
     }

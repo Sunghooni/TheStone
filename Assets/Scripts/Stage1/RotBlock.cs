@@ -9,10 +9,20 @@ public class RotBlock : MonoBehaviour
     public bool startRot = false;
     public bool isTriggerOn = false;
 
+    private AudioSource audioSource = null;
+    private GameObject AudioManager;
+    SoundManager soundManager;
+
     void Awake()
     {
         var pos = this.transform.position;
-        rotPoint = new Vector3(pos.x - 1.5f, pos.y - 1.5f, pos.z);        
+        rotPoint = new Vector3(pos.x - 1.5f, pos.y - 1.5f, pos.z);
+
+        if(gameObject.GetComponent<AudioSource>())
+            audioSource = gameObject.GetComponent<AudioSource>();
+
+        AudioManager = GameObject.FindWithTag("AudioManager");
+        soundManager = AudioManager.GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -20,7 +30,17 @@ public class RotBlock : MonoBehaviour
         if(startRot && this.transform.eulerAngles.z == 0)
         {
             StartCoroutine(RotMovement());
+            if(audioSource != null)
+                PlaySound("BridgeMaking");
         }
+    }
+
+    private void PlaySound(string name)
+    {
+        audioSource.clip = soundManager.GetAudioClip(name);
+        audioSource.volume = soundManager.GetAudioVolume();
+        Debug.Log(audioSource.volume);
+        audioSource.Play();
     }
 
     IEnumerator RotMovement()

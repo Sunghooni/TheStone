@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class TeleportCtrl : MonoBehaviour
@@ -15,7 +14,12 @@ public class TeleportCtrl : MonoBehaviour
     private void Awake()
     {
         wizardCtrl = gameObject.GetComponent<WizardCtrl>();
-        teleportDelay = TeleportPtc.startLifetime / 2;
+        if(SaveData.Get_SelectedStage() == 2)
+        {
+            teleportDelay = 0.5f;
+        }
+        else
+            teleportDelay = 1.5f;
     }
 
     public void teleportPlay(GameObject block)

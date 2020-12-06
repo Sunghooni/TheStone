@@ -5,15 +5,25 @@ using UnityEngine;
 public class CollapseTrigger : MonoBehaviour
 {
     public bool startCollapse = false;
+    public int num;
+
     private bool playOnce = true;
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
+    }
 
     private void Update()
     {
         if (startCollapse && playOnce)
             StartCoroutine("RotatePiller");
     }
+
     IEnumerator RotatePiller()
     {
+        soundManager.PlaySound(gameObject, "Collapse" + num);
         playOnce = false;
 
         while (true)

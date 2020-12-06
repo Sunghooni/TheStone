@@ -8,6 +8,8 @@ public class CheckClear : MonoBehaviour
     public bool isClear = false;
     public bool stopPtcl = false;
     private bool playOnce = true;
+    private SoundManager soundManager;
+
     private void Update()
     {
         if (stopPtcl && playOnce)
@@ -16,6 +18,11 @@ public class CheckClear : MonoBehaviour
             playOnce = false;
         }
     }
+    private void Awake()
+    {
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
+    }
+
     private void StopLoop()
     {
         int childrenCnt = gameObject.transform.childCount;
@@ -41,6 +48,9 @@ public class CheckClear : MonoBehaviour
             other.transform.eulerAngles = new Vector3(0, 180, 0);
             other.transform.position = gameObject.transform.position;
             isClear = true;
+
+            if(gameObject.GetComponent<AudioSource>() != null)
+                soundManager.PlaySound(gameObject ,"FinishBell");
 
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }

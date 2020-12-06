@@ -18,15 +18,24 @@ public class SoundManager : MonoBehaviour
                 break;
             }
         }
-
-        if (returnClip == null)
-            Debug.Log("AudioClip isn't Exist");
-
         return returnClip;
     }
 
     public float GetAudioVolume()
     {
         return SaveData.Get_Volume();
+    }
+
+    public void PlaySound(GameObject obj, string clipName)
+    {
+        foreach(AudioClip clip in AudioClips)
+        {
+            if(clip.name.Equals(clipName))
+            {
+                obj.GetComponent<AudioSource>().volume = GetAudioVolume();
+                obj.GetComponent<AudioSource>().clip = clip;
+                obj.GetComponent<AudioSource>().Play();
+            }
+        }
     }
 }

@@ -6,6 +6,13 @@ public class ClearCheck_2 : MonoBehaviour
 {
     public GameObject Player;
     public GameObject ClearPanel;
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag.Equals("Player"))
@@ -17,6 +24,7 @@ public class ClearCheck_2 : MonoBehaviour
             ClearPanel.SetActive(true);
             Player.GetComponent<WizardCtrl>().moveSpeed = 0;
             Player.GetComponent<WizardCtrl>().rotSpeed = 0;
+            soundManager.PlaySound(gameObject, "FinishBell");
         }
     }
 }

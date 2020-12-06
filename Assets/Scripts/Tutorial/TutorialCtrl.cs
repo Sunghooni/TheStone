@@ -7,18 +7,22 @@ public class TutorialCtrl : MonoBehaviour
     BlockManager blockManager;
     WizardCtrl wizardCtrl;
     TutorialScene tutorialScene;
+    SoundManager soundManager;
 
     public GameObject blockManagerObj;
     public GameObject backBlock;
     public GameObject player;
+
+    private bool playOnce = false;
 
     void Awake()
     {
         blockManager = blockManagerObj.GetComponent<BlockManager>();
         wizardCtrl = player.GetComponent<WizardCtrl>();
         tutorialScene = gameObject.GetComponent<TutorialScene>();
-        
-        for(int i = 0; i < blockManager.Blocks.Length; i++)
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
+
+        for (int i = 0; i < blockManager.Blocks.Length; i++)
         {
             blockManager.SetblockState(i, "Unmovable");
         }
@@ -151,5 +155,11 @@ public class TutorialCtrl : MonoBehaviour
     {
         wizardCtrl.moveSpeed = 0;
         wizardCtrl.rotSpeed = 0;
+
+        if(!playOnce)
+        {
+            soundManager.PlaySound(gameObject, "FinishBell");
+            playOnce = true;
+        }
     }
 }

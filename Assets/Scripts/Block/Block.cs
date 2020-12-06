@@ -18,19 +18,13 @@ public class Block : MonoBehaviour
     private Vector3 originPos = Vector3.zero;
     private Vector3 toPos = Vector3.zero;
     private bool canGo = true;
-
-    private AudioSource audioSource;
-    private GameObject AudioManager;
-    SoundManager soundManager;
+    private SoundManager soundManager;
 
     void Awake()
     {
         originPos = this.transform.position;
         toPos = originPos + transform.right * -MoveDistance;
-
-        audioSource = gameObject.GetComponent<AudioSource>();
-        AudioManager = GameObject.FindWithTag("AudioManager");
-        soundManager = AudioManager.GetComponent<SoundManager>();
+        soundManager = GameObject.FindWithTag("AudioManager").GetComponent<SoundManager>();
     }
 
     private void FixedUpdate()
@@ -50,15 +44,16 @@ public class Block : MonoBehaviour
     IEnumerator Moving()
     {
         float timer = 0;
+        soundManager.PlaySound(gameObject, "RockRubbing");
 
         while (true)
         {
-            if(!freeze)
+            if (!freeze)
             {
                 timer += Time.deltaTime;
             }
             else
-                audioSource.Pause();
+                gameObject.GetComponent<AudioSource>().Pause();
 
             if(blockState == State.Moving)
             {
@@ -73,7 +68,7 @@ public class Block : MonoBehaviour
             {
                 if (stopMove)
                 {
-                    PlaySound("RockCollide");
+                    soundManager.PlaySound(gameObject, "RockCollide");
                     blockState = State.Fixed;
                     break;
                 }
@@ -95,14 +90,6 @@ public class Block : MonoBehaviour
             }
             yield return new WaitForFixedUpdate();
         }
-    }
-
-    private void PlaySound(string name)
-    {
-        audioSource.clip = soundManager.GetAudioClip(name);
-        audioSource.volume = soundManager.GetAudioVolume();
-        Debug.Log(audioSource.volume);
-        audioSource.Play();
     }
 
     public void OnTriggerEnter(Collider other)
